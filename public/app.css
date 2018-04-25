@@ -1,0 +1,1138 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700,900);/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+html {
+  line-height: 1.15;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+
+figcaption,
+figure,
+main {
+  /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+
+details,
+menu {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+canvas {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+
+template {
+  display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+  display: none;
+}
+
+.lom--site-header .lom--site-title:after,
+.lom--single-content .lom--psalm-verses:after,
+.lom--main-content .lom--cell:first-of-type .lom--psalm-verses:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+html {
+  line-height: 24px;
+  line-height: 1.5rem;
+}
+
+html {
+  width: 100%;
+}
+
+@media (max-width: 849px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-y: scroll;
+}
+
+body.lom--guide-visible {
+  overflow: hidden;
+}
+
+.lom--wrapper {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 900px;
+}
+
+.content-wrapper {
+  width: calc(100vw - 18px);
+  overflow: hidden;
+}
+
+.lom--header {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  padding-top: 0px;
+  padding-top: 0rem;
+  padding-right: 72px;
+  padding-right: 4.5rem;
+  padding-bottom: 0px;
+  padding-bottom: 0rem;
+  padding-left: 72px;
+  padding-left: 4.5rem;
+  background-color: #000;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+
+.lom--site-title {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  padding-top: 24px;
+  padding-top: 1.5rem;
+  padding-right: 0px;
+  padding-right: 0rem;
+  padding-bottom: 24px;
+  padding-bottom: 1.5rem;
+  padding-left: 0px;
+  padding-left: 0rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-weight: 300;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.lom--site-title a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.lom--site-title strong {
+  font-weight: 600;
+}
+
+.lom--psalm-navigation {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  padding-top: 6px;
+  padding-top: 0.375rem;
+  padding-right: 0px;
+  padding-right: 0rem;
+  padding-bottom: 6px;
+  padding-bottom: 0.375rem;
+  padding-left: 0px;
+  padding-left: 0rem;
+  display: block;
+  vertical-align: middle;
+}
+
+.lom--psalm-navigation a {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  color: #00f;
+  margin-right: 15px;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.lom--psalm-navigation a:hover {
+  color: #000;
+}
+
+.lom--site-header {
+  background-color: #000;
+  width: 100%;
+  display: table;
+}
+
+.lom--site-header .lom--cell {
+  display: table-cell;
+  vertical-align: top;
+  width: 33.33%;
+  overflow: hidden;
+}
+
+.lom--site-header .lom--site-title {
+  margin-right: 5rem;
+  width: 55%;
+  float: right;
+}
+
+.lom--site-header .lom--header-back-btn {
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 48px;
+  line-height: 3rem;
+  padding-top: 24px;
+  padding-top: 1.5rem;
+  padding-right: 0px;
+  padding-right: 0rem;
+  padding-bottom: 24px;
+  padding-bottom: 1.5rem;
+  padding-left: 0px;
+  padding-left: 0rem;
+  display: inline-block;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: middle;
+  width: 80px;
+  text-align: center;
+}
+
+.lom--site-header .lom--header-back-btn:hover {
+  background-color: #00f;
+}
+
+.lom--site-header .lom--search {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  padding-top: 34.8px;
+  padding-top: 2.175rem;
+  padding-right: 24px;
+  padding-right: 1.5rem;
+  padding-bottom: 34.8px;
+  padding-bottom: 2.175rem;
+  padding-left: 24px;
+  padding-left: 1.5rem;
+  border-left: 1px solid #fff;
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.lom--site-header .lom--search input {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  background-color: #000;
+  border: none;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  vertical-align: middle;
+  width: calc(100% - 100px);
+}
+
+.lom--site-header .lom--search svg {
+  color: #fff;
+  vertical-align: middle;
+  margin-left: 8px;
+  margin-right: 20px;
+}
+
+.lom--single-content {
+  width: 100%;
+  display: table;
+}
+
+.lom--single-content .lom--cell {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: table-cell;
+  vertical-align: top;
+  width: 33.33%;
+  padding-bottom: 5rem;
+}
+
+.lom--single-content .lom--cell.lom--marginalia-cell {
+  background: #F9F9F9;
+}
+
+.lom--single-content .lom--cell.lom--author-cell {
+  background-color: #FF004E;
+  color: #fff;
+}
+
+.lom--single-content .lom--psalm-verses {
+  float: right;
+  margin-right: 5rem;
+  width: 55%;
+}
+
+.lom--single-content .lom--psalm-verses .lom--psalm-title,
+.lom--single-content .lom--psalm-verses .lom--psalm-subtitle {
+  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
+}
+
+.lom--single-content .lom--psalm-commentaries {
+  width: 80%;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.lom--single-content .lom--psalm-marginalia,
+.lom--single-content .lom--author-description {
+  width: 80%;
+  margin-left: 3rem;
+}
+
+.lom--single-content .lom--psalm-marginalia .lom--psalm-subtitle,
+.lom--single-content .lom--author-description .lom--psalm-subtitle {
+  margin-bottom: 62.4px;
+  margin-bottom: 3.9rem;
+}
+
+.lom--single-content .lom--author-description {
+  color: #fff;
+}
+
+.lom--single-content .lom--author-description .lom--psalm-subtitle {
+  font-weight: 600;
+  color: #fff;
+}
+
+.lom--single-content .lom--author-description p {
+  margin: 0;
+}
+
+.lom--single-content .lom--psalm-title,
+.lom--single-content .lom--psalm-subtitle {
+  font-size: 38px;
+  font-size: 2.375rem;
+  line-height: 48px;
+  line-height: 3rem;
+  margin-top: 72px;
+  margin-top: 4.5rem;
+  margin-bottom: 10.8px;
+  margin-bottom: 0.675rem;
+  color: #00f;
+  font-weight: 900;
+}
+
+.lom--single-content .lom--psalm-subtitle {
+  color: #000;
+  font-weight: 600;
+}
+
+p {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 33.6px;
+  line-height: 2.1rem;
+  margin-bottom: 33.6px;
+  margin-bottom: 2.1rem;
+}
+
+.lom--main-content {
+  width: 100%;
+  display: table;
+}
+
+.lom--main-content .verse-link {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 33.6px;
+  line-height: 2.1rem;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  margin-top: 18px;
+  margin-top: 1.125rem;
+  margin-bottom: 33.6px;
+  margin-bottom: 2.1rem;
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+.lom--main-content .verse-link:hover {
+  color: #00f;
+}
+
+.lom--main-content .lom--cell {
+  display: table-cell;
+  vertical-align: top;
+  width: 33.33%;
+  padding-bottom: 5rem;
+}
+
+.lom--main-content .lom--cell:first-of-type .lom--psalm-verses {
+  float: right;
+  margin-right: 5rem;
+  width: 55%;
+}
+
+.lom--main-content .lom--cell:first-of-type .lom--psalm-verses .lom--psalm-title,
+.lom--main-content .lom--cell:first-of-type .lom--psalm-verses .lom--psalm-subtitle {
+  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
+}
+
+.lom--main-content .lom--cell:last-of-type .lom--psalm-verses {
+  margin: 0;
+  width: 55%;
+}
+
+.lom--main-content .lom--cell:last-of-type .lom--psalm-verses .lom--psalm-title,
+.lom--main-content .lom--cell:last-of-type .lom--psalm-verses .lom--psalm-subtitle {
+  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
+}
+
+.lom--main-content .lom--psalm-verses {
+  margin-left: 4rem;
+  width: 55%;
+}
+
+.lom--main-content .lom--psalm-title,
+.lom--main-content .lom--psalm-subtitle {
+  font-size: 38px;
+  font-size: 2.375rem;
+  line-height: 48px;
+  line-height: 3rem;
+  margin-top: 72px;
+  margin-top: 4.5rem;
+  margin-bottom: 10.8px;
+  margin-bottom: 0.675rem;
+  color: #00f;
+  font-weight: 900;
+}
+
+.lom--main-content .lom--psalm-title a,
+.lom--main-content .lom--psalm-subtitle a {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  color: #00f;
+  text-decoration: none;
+}
+
+.lom--main-content .lom--psalm-title a:hover,
+.lom--main-content .lom--psalm-subtitle a:hover {
+  color: #000;
+}
+
+.lom--main-content .lom--psalm-subtitle {
+  color: #000;
+  font-weight: 300;
+}
+
+.lom--psalm-commentaries .lom--author {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.lom--psalm-commentaries .lom--author::after {
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  content: ' ';
+  display: block;
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  border-radius: 15px;
+  top: 2px;
+  left: 50%;
+  margin-left: 1px;
+  background-color: #00f;
+}
+
+.lom--psalm-commentaries .lom--author::before {
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  content: ' ';
+  display: block;
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  border-radius: 15px;
+  top: 2px;
+  left: 50%;
+  margin-left: -5px;
+  background-color: #00f;
+}
+
+.lom--psalm-commentaries .lom--author.lom--author-active,
+.lom--psalm-commentaries .lom--author:hover {
+  color: #FF004E;
+}
+
+.lom--psalm-commentaries .lom--author.lom--author-active::after,
+.lom--psalm-commentaries .lom--author.lom--author-active::before,
+.lom--psalm-commentaries .lom--author:hover::after,
+.lom--psalm-commentaries .lom--author:hover::before {
+  background-color: #FF004E;
+}
+
+.lom--psalm-content {
+  display: block;
+  position: relative;
+}
+
+.lom--psalm-highlight {
+  color: #00f;
+}
+
+.lom--church-authors {
+  width: 30px;
+  position: absolute;
+  top: 0;
+  margin-left: -45px;
+}
+
+.lom--church-authors .lom--authors {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 12px;
+  line-height: 0.75rem;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin-top: 7.2px;
+  margin-top: 0.45rem;
+  height: 26.4px;
+  color: #00f;
+  cursor: pointer;
+  text-align: center;
+  opacity: 1;
+  vertical-align: baseline;
+}
+
+.lom--church-authors .lom--authors:hover {
+  color: #FF004E;
+  opacity: 1;
+}
+
+.lom--church-authors .lom--authors.lom--author-active {
+  color: #FF004E;
+  opacity: 1;
+}
+
+.lom--author-active {
+  color: #FF004E;
+}
+
+.lom--psalm-author-title {
+  margin-top: 48px;
+  margin-top: 3rem;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.lom--close-button {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  height: 30px;
+  margin-bottom: -60px;
+  margin-top: 30px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.lom--close-button:hover {
+  color: #000;
+}
+
+.lom--close-button svg {
+  vertical-align: middle;
+}
+
+.lom--active-verse {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.lom--active-verse:hover {
+  color: #00f;
+}
+
+.lom--active-verse.lom--active {
+  cursor: default;
+  color: #00f;
+}
+
+.slide-horizontal-enter-active,
+.slide-horizontal-leave-active {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.slide-horizontal-enter {
+  -webkit-transform: translateX(-10%);
+          transform: translateX(-10%);
+  opacity: 0;
+}
+
+.slide-horizontal-leave-to {
+  -webkit-transform: translateX(10%);
+          transform: translateX(10%);
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-vertical-enter-active,
+.slide-vertical-leave-active {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  display: block;
+  width: 100%;
+  max-height: 600px;
+}
+
+.slide-vertical-enter,
+.slide-vertical-leave-to {
+  max-height: 0;
+  display: block;
+  width: 100%;
+  opacity: 0;
+}
+
+.lom--guide-overlay {
+  background: RGBA(0, 0, 255, 0.85);
+  padding-top: 48px;
+  padding-top: 3rem;
+  padding-right: 120px;
+  padding-right: 7.5rem;
+  padding-bottom: 48px;
+  padding-bottom: 3rem;
+  padding-left: 120px;
+  padding-left: 7.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: 999;
+}
+
+.lom--guide-overlay .lom--overlay-title {
+  font-size: 40px;
+  font-size: 2.5rem;
+  line-height: 48px;
+  line-height: 3rem;
+  color: #fff;
+}
+
+.lom--guide-overlay p {
+  color: #fff;
+  width: 700px;
+  margin-bottom: 0;
+}
+
+.lom--guide-overlay .lom--btn-continue {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  padding-top: 8.4px;
+  padding-top: 0.525rem;
+  padding-right: 24px;
+  padding-right: 1.5rem;
+  padding-bottom: 8.4px;
+  padding-bottom: 0.525rem;
+  padding-left: 24px;
+  padding-left: 1.5rem;
+  margin-top: 84px;
+  margin-top: 5.25rem;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: #00f;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.lom--guide-overlay .lom--btn-continue:hover {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+

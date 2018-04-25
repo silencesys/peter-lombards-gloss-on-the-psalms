@@ -1,0 +1,476 @@
+// Import font
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900');
+
+// import packages and variables
+@import "~silent-sass";
+@import "variables";
+
+// Set baseline
+@include establish-baseline();
+
+// Appliaction related stylesheets
+html {
+    width:  100%;
+
+    @include respond-to('small') {
+        font-size: 18px;
+    }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-y: scroll;
+    &.lom--guide-visible {
+        overflow: hidden;
+    }
+}
+
+.lom--wrapper {
+    display: block;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 900px;
+}
+
+.content-wrapper {
+    width: calc(100vw - 18px);
+    overflow: hidden;
+}
+
+.lom--header {
+    @include set-font-size(14px);
+    @include rhythm-paddings(0, 3);
+    background-color: $black;
+    color: $white;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.lom--site-title {
+    @include set-font-size(20px);
+    @include rhythm-paddings(1, 0);
+    box-sizing: border-box;
+    color: $white;
+    display: inline-block;
+    font-weight: 300;
+    margin: 0;
+    vertical-align: middle;
+
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+
+    strong {
+        font-weight: 600;
+    }
+}
+
+.lom--psalm-navigation {
+    @include set-font-size(12px);
+    @include rhythm-paddings(.25, 0)
+    display: block;
+    vertical-align: middle;
+
+    a {
+        @include transitions(color .3s ease);
+        color: $blue;
+        margin-right: 15px;
+        vertical-align: middle;
+        text-decoration: none;
+        &:hover {
+            color: $black;
+        }
+    }
+}
+
+.lom--site-header {
+    background-color: $black;
+    width: 100%;
+    display: table;
+    .lom--cell {
+        display: table-cell;
+        vertical-align: top;
+        width: 33.33%;
+        overflow: hidden;
+    }
+    .lom--site-title {
+        @include clearfix();
+        margin-right: 5rem;
+        width: 55%;
+        float: right;
+    }
+    .lom--header-back-btn {
+        @include transitions(background-color .3s ease);
+        @include set-font-size(30px);
+        @include rhythm-paddings(1, 0);
+        display: inline-block;
+        color: $white;
+        box-sizing: border-box;
+        vertical-align: middle;
+        width: 80px;
+        text-align: center;
+
+        &:hover {
+            background-color: $blue;
+        }
+    }
+    .lom--search {
+        @include set-font-size(20px);
+        @include rhythm-paddings(1.45, 1);
+        border-left: 1px solid $white;
+        display: table;
+        height: 100%;
+        width: 100%;
+
+        input {
+            @include set-font-size(14px)
+            background-color: $black;
+            border: none;
+            color: $white;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            vertical-align: middle;
+            width: calc(100% - 100px);
+        }
+
+        svg {
+            color: $white;
+            vertical-align: middle;
+            margin-left: 8px;
+            margin-right: 20px;
+        }
+    }
+}
+
+.lom--single-content {
+    width: 100%;
+    display: table;
+
+    .lom--cell {
+        @include transitions(all .3s ease);
+        display: table-cell;
+        vertical-align: top;
+        width: 33.33%;
+        padding-bottom: 5rem;
+        &.lom--marginalia-cell {
+            background: #F9F9F9;
+        }
+        &.lom--author-cell {
+            background-color: $pink;
+            color: $white;
+        }
+    }
+
+    .lom--psalm-verses {
+        @include clearfix();
+        float: right;
+        margin-right: 5rem;
+        width: 55%;
+        .lom--psalm-title  {
+            @include trailer(.5);
+        }
+    }
+    .lom--psalm-commentaries {
+        width: 80%;
+        margin: 0 auto;
+        text-align: justify;
+    }
+    .lom--psalm-marginalia {
+        width: 80%;
+        margin-left: 3rem;
+        .lom--psalm-subtitle  {
+            @include trailer(2.6);
+        }
+    }
+    .lom--author-description {
+        @extend .lom--psalm-marginalia;
+        color: $white;
+        .lom--psalm-subtitle {
+            font-weight: 600;
+            color: $white;
+        }
+        p {
+            margin: 0;
+        }
+    }
+
+    .lom--psalm-title {
+        @include set-font-size(38px);
+        @include leader(3);
+        @include trailer(.45);
+        color: $blue;
+        font-weight: 900;
+    }
+    .lom--psalm-subtitle {
+        @extend .lom--psalm-title;
+        color: $black;
+        font-weight: 600;
+    }
+}
+
+p {
+    @include set-font-size(14px, 1.4);
+    @include trailer(1.4);
+}
+
+.lom--main-content {
+    width: 100%;
+    display: table;
+
+    .verse-link {
+        @include set-font-size(14px, 1.4);
+        @include transitions(color .3s ease);
+        @include leader(.75);
+        @include trailer(1.4);
+        display: block;
+        text-decoration: none;
+        color: $black;
+        &:hover {
+            color: $blue;
+        }
+    }
+
+    .lom--cell {
+        display: table-cell;
+        vertical-align: top;
+        width: 33.33%;
+        padding-bottom: 5rem;
+        &:first-of-type {
+            .lom--psalm-verses {
+                @include clearfix();
+                float: right;
+                margin-right: 5rem;
+                width: 55%;
+                .lom--psalm-title  {
+                    @include trailer(.5);
+                }
+            }
+        }
+        &:last-of-type {
+            .lom--psalm-verses {
+                margin: 0;
+                width: 55%;
+                .lom--psalm-title  {
+                    @include trailer(.5);
+                }
+            }
+        }
+    }
+    .lom--psalm-verses {
+        margin-left: 4rem;
+        width: 55%;
+    }
+
+    .lom--psalm-title {
+        @include set-font-size(38px);
+        @include leader(3);
+        @include trailer(.45);
+        color: $blue;
+        font-weight: 900;
+        a {
+            @include transitions(color .3s ease);
+            color: $blue;
+            text-decoration: none;
+            &:hover {
+                color: $black;
+            }
+        }
+    }
+    .lom--psalm-subtitle {
+        @extend .lom--psalm-title;
+        color: $black;
+        font-weight: 300;
+    }
+}
+
+.lom--psalm-commentaries {
+    .lom--author {
+        @include transitions(color .3s ease);
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        &::after {
+            @include transitions(background .3s ease);
+            content: ' ';
+            display: block;
+            width: 3px;
+            height: 3px;
+            position: absolute;
+            border-radius: 15px;
+            top: 2px;
+            left: 50%;
+            margin-left: 1px;
+            background-color: $blue;
+        }
+        &::before {
+            @include transitions(background .3s ease);
+            content: ' ';
+            display: block;
+            width: 3px;
+            height: 3px;
+            position: absolute;
+            border-radius: 15px;
+            top: 2px;
+            left: 50%;
+            margin-left: -5px;
+            background-color: $blue;
+        }
+        &.lom--author-active, &:hover {
+            color: $pink;
+            &::after, &::before {
+                background-color: $pink;
+            }
+        }
+    }
+}
+
+.lom--psalm-content {
+    display: block;
+    position: relative;
+}
+.lom--psalm-highlight {
+    color: $blue;
+}
+.lom--church-authors {
+    width: 30px;
+    position: absolute;
+    top: 0;
+    margin-left: -45px;
+
+    .lom--authors {
+        @include set-font-size(12px, .5);
+        @include transitions(all .3s ease);
+        @include leader(.3);
+        height: 1.1 * $base-line-height;
+        color: $blue;
+        cursor: pointer;
+        text-align: center;
+        opacity: 1;
+        vertical-align: baseline;
+        &:hover {
+            color: $pink;
+            opacity: 1;
+        }
+        &.lom--author-active {
+            color: $pink;
+            opacity: 1;
+        }
+    }
+}
+.lom--author-active {
+    color: $pink;
+}
+.lom--psalm-author-title {
+    @include leader(2);
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.lom--close-button {
+    @include transitions(color .3s ease);
+    height: 30px;
+    margin-bottom: -60px;
+    margin-top: 30px;
+    cursor: pointer;
+    vertical-align: middle;
+    &:hover {
+        color: $black;
+    }
+
+    svg {
+        vertical-align: middle;
+    }
+}
+
+.lom--active-verse {
+    @include transitions(color .3s ease);
+    cursor: pointer;
+    &:hover {
+        color: $blue;
+    }
+    &.lom--active {
+        cursor: default;
+        color: $blue;
+    }
+}
+
+.slide-horizontal-enter-active,
+.slide-horizontal-leave-active {
+    transition: all .5s ease;
+}
+.slide-horizontal-enter {
+    transform: translateX(-10%);
+    opacity: 0;
+}
+.slide-horizontal-leave-to {
+    transform: translateX(10%);
+    opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+// Vertical slide animation
+.slide-vertical-enter-active,
+.slide-vertical-leave-active {
+    transition: all .5s ease;
+    display: block;
+    width: 100%;
+    max-height: 600px;
+}
+.slide-vertical-enter,
+.slide-vertical-leave-to {
+    max-height: 0;
+    display: block;
+    width: 100%;
+    opacity: 0;
+}
+
+.lom--guide-overlay {
+    background: RGBA(0,0,255, .85);
+    @include rhythm-paddings(2, 5);
+    box-sizing: border-box;
+    display: block;
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    z-index: 999;
+
+    .lom--overlay-title {
+        @include set-font-size(40px);
+        color: $white;
+    }
+
+    p {
+        color: $white;
+        width: 700px;
+        margin-bottom: 0;
+    }
+
+    .lom--btn-continue {
+        @include transitions(all .3s ease);
+        @include set-font-size(14px);
+        @include rhythm-paddings(.35,1);
+        @include leader(3.5);
+        font-family: 'Roboto', sans-serif;
+        border: none;
+        color: $blue;
+        cursor: pointer;
+        border: 1px solid transparent;
+        background-color: $white;
+        border-radius: 12px;
+        &:hover {
+            background: transparent;
+            border: 1px solid $white;
+            color: $white;
+        }
+    }
+}
