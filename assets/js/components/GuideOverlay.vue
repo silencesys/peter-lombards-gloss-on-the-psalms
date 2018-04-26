@@ -67,7 +67,7 @@
                             <button class="lom--btn-continue" @click.prevent="continueInGuide">
                                 Continue
                             </button>
-                            <a href="" class="lom--link-white" @click.prevent="skipTheIntro">
+                            <a href="" class="lom--link-white" @click.prevent="skipTheIntro" v-if="step < 2">
                                 Skip the intro
                                 <font-awesome-icon :icon="['far', 'arrow-right']" />
                             </a>

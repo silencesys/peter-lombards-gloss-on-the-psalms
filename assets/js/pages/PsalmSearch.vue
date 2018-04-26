@@ -27,37 +27,14 @@
 </template>
 
 <script>
+    import dataPsalms from './../data/psalms'
+
     export default {
         name: 'Page--PsalmIndex',
         data() {
             return {
-                psalms: [
-                    {
-                        id: 12,
-                        title: "On psalm 12",
-                        verses: [
-                            "Titulus. In finem Psalmus David. Titulus iste patet. Psalmus iste agit de caritate Christi, in qua totius legis perfectio est, quam qui habet, mundum non amat. Hic enim propheta plenus caritate..."
-                        ]
-                    },
-                    {
-                        id: 12,
-                        title: "On psalm 15",
-                        verses: [
-                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias est maiores quo tempora illum quibusdam, incidunt aspernatur, voluptatem maxime, nihil corporis quis beatae neque, esse...",
-                        ]
-                    },
-                    {
-                        id: 12,
-                        title: "On psalm 16",
-                        verses: [
-                            " Dei cultura suscipiatur. Vel in persona sanctorum modernorum loquitur, secundum Christi adventum desiderantium, ubi certi sunt de salute. Quanto enim desiderio antiqui...",
-                        ]
-                    }
-                ]
+                psalms: dataPsalms.search
             }
-        },
-        created() {
-
         }
     }
 </script>

@@ -505,7 +505,7 @@ p {
         @include transitions(all .3s ease);
         @include set-font-size(14px);
         @include rhythm-paddings(.35,1);
-        @include leader(3.5);
+        @include leader(2.5);
         font-family: 'Roboto', sans-serif;
         border: none;
         color: $blue;

@@ -40,10 +40,12 @@
                 return this.$route.name !== 'home';
             }
         },
-        watch: {
-
-        },
         methods: {
+            /**
+             * Fake search request.
+             *
+             * @return {void}
+             */
             search() {
                 this.$router.push({name: 'psalm.search', params: {query: this.query}});
             }
