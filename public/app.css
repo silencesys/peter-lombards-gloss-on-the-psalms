@@ -598,8 +598,8 @@ body.lom--guide-visible {
   padding-bottom: 0.375rem;
   padding-left: 0px;
   padding-left: 0rem;
-  border-top: 1px solid #00f;
-  border-bottom: 1px solid #00f;
+  border-top: 1px solid #FF004E;
+  border-bottom: 1px solid #FF004E;
   display: block;
   vertical-align: middle;
 }
@@ -615,6 +615,24 @@ body.lom--guide-visible {
 
 .lom--psalm-navigation a:hover {
   color: #000;
+}
+
+.lom--link-white {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+  vertical-align: middle;
+}
+
+.lom--link-white:hover {
+  color: #000;
+}
+
+.lom--link-white svg {
+  vertical-align: middle;
+  margin-left: .5rem;
 }
 
 .lom--site-header {
@@ -706,6 +724,7 @@ body.lom--guide-visible {
 
 .lom--single-content {
   width: 100%;
+  height: 100%;
   display: table;
 }
 
@@ -715,7 +734,7 @@ body.lom--guide-visible {
   display: table-cell;
   vertical-align: top;
   width: 33.33%;
-  padding-bottom: 5rem;
+  height: 100%;
 }
 
 .lom--single-content .lom--cell.lom--marginalia-cell {
@@ -807,7 +826,7 @@ body.lom--guide-visible {
   margin-top: 4.5rem;
   margin-bottom: 10.8px;
   margin-bottom: 0.675rem;
-  color: #00f;
+  color: #FF004E;
   font-weight: 900;
 }
 
@@ -854,7 +873,6 @@ p {
   display: table-cell;
   vertical-align: top;
   width: 33.33%;
-  padding-bottom: 5rem;
 }
 
 .lom--main-content .lom--cell:first-of-type .lom--psalm-verses {
@@ -885,6 +903,22 @@ p {
   width: 55%;
 }
 
+.lom--main-content .lom--psalm-verses .lom--continue-reading {
+  color: #00f;
+  text-decoration: none;
+  border-bottom: none;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  vertical-align: middle;
+}
+
+.lom--main-content .lom--psalm-verses .lom--continue-reading svg {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
 .lom--main-content .lom--psalm-title,
 .lom--main-content .lom--psalm-subtitle {
   font-size: 38px;
@@ -895,7 +929,7 @@ p {
   margin-top: 4.5rem;
   margin-bottom: 10.8px;
   margin-bottom: 0.675rem;
-  color: #00f;
+  color: #FF004E;
   font-weight: 900;
 }
 
@@ -903,7 +937,7 @@ p {
 .lom--main-content .lom--psalm-subtitle a {
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
-  color: #00f;
+  color: #FF004E;
   text-decoration: none;
 }
 
@@ -937,7 +971,7 @@ p {
   top: 2px;
   left: 50%;
   margin-left: 1px;
-  background-color: #00f;
+  background-color: #FF004E;
 }
 
 .lom--psalm-commentaries .lom--author::before {
@@ -952,7 +986,7 @@ p {
   top: 2px;
   left: 50%;
   margin-left: -5px;
-  background-color: #00f;
+  background-color: #FF004E;
 }
 
 .lom--psalm-commentaries .lom--author.lom--author-active,
@@ -973,7 +1007,7 @@ p {
 }
 
 .lom--psalm-highlight {
-  color: #00f;
+  border-bottom: 1px solid #FF004E;
 }
 
 .lom--church-authors {
@@ -1003,7 +1037,7 @@ p {
 }
 
 .lom--church-authors .lom--authors:hover {
-  color: #FF004E;
+  color: #000;
   opacity: 1;
 }
 
@@ -1035,7 +1069,7 @@ p {
 
 .lom--active-verse.lom--active {
   cursor: default;
-  color: #00f;
+  color: #FF004E;
 }
 
 .slide-horizontal-enter-active,
@@ -1086,14 +1120,6 @@ p {
 
 .lom--guide-overlay {
   background: RGBA(0, 0, 255, 0.85);
-  padding-top: 48px;
-  padding-top: 3rem;
-  padding-right: 120px;
-  padding-right: 7.5rem;
-  padding-bottom: 48px;
-  padding-bottom: 3rem;
-  padding-left: 120px;
-  padding-left: 7.5rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: block;
@@ -1103,11 +1129,18 @@ p {
   z-index: 999;
 }
 
+.lom--guide-overlay .active-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .lom--guide-overlay .lom--overlay-title {
   font-size: 40px;
   font-size: 2.5rem;
   line-height: 48px;
   line-height: 3rem;
+  margin-bottom: 16.8px;
+  margin-bottom: 1.05rem;
   color: #fff;
 }
 
@@ -1172,7 +1205,7 @@ p {
 .lom--has-marginalia {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  border-bottom: 1px solid #00f;
+  color: #00f;
   cursor: pointer;
 }
 
@@ -1183,30 +1216,268 @@ p {
 }
 
 .lom-marginalia-title {
-  margin: 0;
-  color: #00f;
-  font-weight: 400;
+  margin-top: 24px;
+  margin-top: 1.5rem;
+  margin-bottom: 6px;
+  margin-bottom: 0.375rem;
+  color: #000;
+  font-weight: 600;
 }
 
 .lom-marginalia-desc {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 24px;
+  line-height: 1.5rem;
   margin: 0;
-  color: #00f;
-  font-weight: 300;
+  padding: 0;
+  color: #000;
+  font-weight: 400;
+}
+
+.lom--marginalia-image img {
+  border: 3px solid #000;
+  border-radius: 4px;
+}
+
+.lom--preview-cell {
+  width: 100%;
+  height: 100%;
+  background: red;
+}
+
+.lom--preview-height {
+  width: 100%;
+  height: 100%;
 }
 
 .lom--detail-panel {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  line-height: 33.6px;
+  line-height: 2.1rem;
+  font-family: 'Roboto', sans-serif;
   display: block;
   position: absolute;
   width: 10px;
   margin-left: -30px;
-  text-align: tac;
+  text-align: center;
 }
 
-.lom--detail-panel svg {
+.lom--detail-panel .lom--verse-marginalia {
+  display: inline-block;
+  text-align: center;
+  width: 15px;
+  color: #00f;
   cursor: pointer;
 }
 
-.lom--detail-panel svg:hover {
+.lom--disabled {
+  cursor: default !important;
+}
+
+.lom--disabled:hover {
+  color: #00f !important;
+}
+
+.lom--two-columns {
+  padding-top: 0px;
+  padding-top: 0rem;
+  padding-right: 0px;
+  padding-right: 0rem;
+  padding-bottom: 0px;
+  padding-bottom: 0rem;
+  padding-left: 0px;
+  padding-left: 0rem;
+  display: table;
+  width: 100%;
+}
+
+.lom--first-column {
+  padding-top: 48px;
+  padding-top: 3rem;
+  padding-right: 72px;
+  padding-right: 4.5rem;
+  padding-bottom: 360px;
+  padding-bottom: 22.5rem;
+  padding-left: 120px;
+  padding-left: 7.5rem;
+  display: table-cell;
+  height: 100%;
+  width: 45%;
+}
+
+.lom--second-column {
+  display: table-cell;
+  height: 100%;
+  width: 45%;
+}
+
+.lom--white-border {
+  border-left: 4px solid #fff;
+}
+
+.lom--first-image {
+  background: url("/public/folios/first.jpg");
+}
+
+.lom--second-image {
+  background: url("/public/folios/two.jpg");
+}
+
+.two-dots {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.two-dots::after {
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  content: ' ';
+  display: block;
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  border-radius: 15px;
+  top: 2px;
+  left: 50%;
+  margin-left: 1px;
+  background-color: #fff;
+}
+
+.two-dots::before {
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  content: ' ';
+  display: block;
+  width: 3px;
+  height: 3px;
+  position: absolute;
+  border-radius: 15px;
+  top: 2px;
+  left: 50%;
+  margin-left: -5px;
+  background-color: #fff;
+}
+
+.lom--psalm-text {
+  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
+}
+
+.lom--search-content,
+.lom--home-content {
+  padding-top: 48px;
+  padding-top: 3rem;
+  padding-right: 120px;
+  padding-right: 7.5rem;
+  padding-bottom: 48px;
+  padding-bottom: 3rem;
+  padding-left: 120px;
+  padding-left: 7.5rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.lom--search-content .lom--continue-reading,
+.lom--home-content .lom--continue-reading {
+  color: #00f;
+  text-decoration: none;
+  border-bottom: none;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  vertical-align: middle;
+}
+
+.lom--search-content .lom--continue-reading svg,
+.lom--home-content .lom--continue-reading svg {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.lom--search-content .lom--search-title,
+.lom--home-content .lom--search-title {
+  font-size: 38px;
+  font-size: 2.375rem;
+  line-height: 48px;
+  line-height: 3rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.lom--search-content .lom--search-title .lom--search-query,
+.lom--home-content .lom--search-title .lom--search-query {
   color: #FF004E;
+}
+
+.lom--search-content .lom--search-results,
+.lom--home-content .lom--search-results {
+  width: 250px;
+  float: left;
+  margin-right: 7.25rem;
+}
+
+.lom--search-content .lom--search-results .lom--psalm-title,
+.lom--search-content .lom--search-results .lom--single-content .lom--psalm-subtitle,
+.lom--single-content .lom--search-content .lom--search-results .lom--psalm-subtitle,
+.lom--search-content .lom--search-results .lom--main-content .lom--psalm-subtitle,
+.lom--main-content .lom--search-content .lom--search-results .lom--psalm-subtitle,
+.lom--home-content .lom--search-results .lom--psalm-title,
+.lom--home-content .lom--search-results .lom--single-content .lom--psalm-subtitle,
+.lom--single-content .lom--home-content .lom--search-results .lom--psalm-subtitle,
+.lom--home-content .lom--search-results .lom--main-content .lom--psalm-subtitle,
+.lom--main-content .lom--home-content .lom--search-results .lom--psalm-subtitle {
+  font-size: 28px;
+  font-size: 1.75rem;
+  line-height: 48px;
+  line-height: 3rem;
+  margin-top: 48px;
+  margin-top: 3rem;
+  margin-bottom: 10.8px;
+  margin-bottom: 0.675rem;
+  color: #FF004E;
+  font-weight: 900;
+}
+
+.lom--search-content .lom--search-results .lom--psalm-title a,
+.lom--search-content .lom--search-results .lom--single-content .lom--psalm-subtitle a,
+.lom--single-content .lom--search-content .lom--search-results .lom--psalm-subtitle a,
+.lom--search-content .lom--search-results .lom--main-content .lom--psalm-subtitle a,
+.lom--main-content .lom--search-content .lom--search-results .lom--psalm-subtitle a,
+.lom--home-content .lom--search-results .lom--psalm-title a,
+.lom--home-content .lom--search-results .lom--single-content .lom--psalm-subtitle a,
+.lom--single-content .lom--home-content .lom--search-results .lom--psalm-subtitle a,
+.lom--home-content .lom--search-results .lom--main-content .lom--psalm-subtitle a,
+.lom--main-content .lom--home-content .lom--search-results .lom--psalm-subtitle a {
+  color: #FF004E;
+  text-decoration: none;
+}
+
+.lom--search-content .lom--search-results .lom--psalm-title a:hover,
+.lom--search-content .lom--search-results .lom--single-content .lom--psalm-subtitle a:hover,
+.lom--single-content .lom--search-content .lom--search-results .lom--psalm-subtitle a:hover,
+.lom--search-content .lom--search-results .lom--main-content .lom--psalm-subtitle a:hover,
+.lom--main-content .lom--search-content .lom--search-results .lom--psalm-subtitle a:hover,
+.lom--home-content .lom--search-results .lom--psalm-title a:hover,
+.lom--home-content .lom--search-results .lom--single-content .lom--psalm-subtitle a:hover,
+.lom--single-content .lom--home-content .lom--search-results .lom--psalm-subtitle a:hover,
+.lom--home-content .lom--search-results .lom--main-content .lom--psalm-subtitle a:hover,
+.lom--main-content .lom--home-content .lom--search-results .lom--psalm-subtitle a:hover {
+  color: #000;
+}
+
+.lom--home-content .lom--search-results .lom--psalm-title,
+.lom--home-content .lom--search-results .lom--single-content .lom--psalm-subtitle,
+.lom--single-content .lom--home-content .lom--search-results .lom--psalm-subtitle,
+.lom--home-content .lom--search-results .lom--main-content .lom--psalm-subtitle,
+.lom--main-content .lom--home-content .lom--search-results .lom--psalm-subtitle {
+  font-size: 38px;
+  font-size: 2.375rem;
+  line-height: 48px;
+  line-height: 3rem;
 }
 

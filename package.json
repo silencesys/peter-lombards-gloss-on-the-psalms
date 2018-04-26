@@ -14,12 +14,16 @@
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.5",
     "@fortawesome/fontawesome-free-brands": "^5.0.10",
+    "@fortawesome/fontawesome-pro-regular": "^5.0.10",
     "@fortawesome/fontawesome-pro-solid": "^5.0.10",
     "@fortawesome/vue-fontawesome": "0.0.22",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "silent-sass": "0.0.9",
+    "v-viewer": "^1.0.1",
     "vue": "^2.5.16",
+    "vue-images-viewer": "^1.1.0",
+    "vue-img-view": "^1.0.3",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

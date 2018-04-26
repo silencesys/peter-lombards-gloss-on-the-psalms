@@ -7,59 +7,91 @@
                 </h2>
 
                 <div class="lom--psalm-navigation">
-                    <router-link to="/" class="lom--ps-title-icon">
+                    <a href="/public/folios/18.jpg" target="_blank" class="lom--ps-title-icon" @click.prevent="selectFolio('v17')">
                         <font-awesome-icon :icon="['far', 'file']" />
                         17v
-                    </router-link>
-                    <router-link to="/" class="lom--ps-title-icon">
+                    </a>
+                    <a href="/public/folios/18.jpg" target="_blank" class="lom--ps-title-icon" @click.prevent="selectFolio('r18')">
                         <font-awesome-icon :icon="['far', 'file']" />
                         18r
-                    </router-link>
-                    <router-link to="/" class="lom--ps-title-icon">
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=-EV4U8qGlKE" target="_blank" class="lom--ps-title-icon">
                         <font-awesome-icon :icon="['fab', 'youtube']" />
                         Listen
-                    </router-link>
+                    </a>
                 </div>
 
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 1}]" @click="openVerse(1)">
                     <span class="lom--detail-panel">
-                        <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(1, [0,0])" />
-                        <font-awesome-icon :icon="['far', 'eye']" />
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(1, [0,0])" title="Marginalia" />
+                        </span>
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'eye']" @click="selectFolio('v17v1')" />
+                        </span>
                     </span>
-                    Usquequo, Domine, oblivisceris me in finem? Usquequo avertis faciem tuam a me?
+                    <span @click="selectFolio('v17')">
+                        Usquequo, Domine, oblivisceris me in finem? Usquequo avertis faciem tuam a me?
+                    </span>
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 2}]" @click="openVerse(2)">
                     <span class="lom--detail-panel">
-                        <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(2, [0,0])" />
-                        <font-awesome-icon :icon="['far', 'eye']" />
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(2, [0,0])" title="Marginalia" />
+                        </span>
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'eye']" @click="selectFolio('r18v2')"/>
+                        </span>
                     </span>
-                    Quamdiu ponam consilia in anima mea, dolorem in corde meo per diem?
+                    <span @click="selectFolio('r18')">
+                        Quamdiu ponam consilia in anima mea, dolorem in corde meo per diem?
+                    </span>
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 3}]" @click="openVerse(3)">
                     <span class="lom--detail-panel">
-                        <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(3, [0,0])" />
-                        <font-awesome-icon :icon="['far', 'eye']" />
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(3, [0,0])" />
+                        </span>
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'eye']" @click="selectFolio('r18v3')"/>
+                        </span>
                     </span>
-                    Usquequo exaltabitur inimicus meus super me? Respice et exaudi me, Domine Deus meus.
+                    <span @click="selectFolio('r18')">
+                        Usquequo exaltabitur inimicus meus super me? Respice et exaudi me, Domine Deus meus.
+                    </span>
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 4}]" @click="openVerse(4)">
                     <span class="lom--detail-panel">
-                        <font-awesome-icon :icon="['far', 'eye']" />
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'eye']" @click="selectFolio('r18v4')"/>
+                        </span>
                     </span>
-                    Illumina oculos meos, ne umquam obdormiam in morte. Nequando dicat inimicus meus: Prevalui adversus eum.
+                    <span @click="selectFolio('r18')">
+                        Illumina oculos meos, ne umquam obdormiam in morte. Nequando dicat inimicus meus: Prevalui adversus eum.
+                    </span>
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 5}]" @click="openVerse(5)">
                     <span class="lom--detail-panel">
-                        <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(5, [5,0])" />
-                        <font-awesome-icon :icon="['far', 'eye']" />
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(5, [5,0])" title="Marginalia" />
+                        </span>
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'eye']" @click="selectFolio('r18v5')"/>
+                        </span>
                     </span>
-                    Qui tribulant me, exultabunt, si motus fuero. Ego autem in misericordia tua speravi.
+                    <span @click="selectFolio('r18')">
+                        Qui tribulant me, exultabunt, si motus fuero. Ego autem in misericordia tua speravi.
+                    </span>
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 6}]" @click="openVerse(6)">
                     <span class="lom--detail-panel">
-                        <font-awesome-icon :icon="['far', 'eye']" />
+                        <span class="lom--verse-marginalia">
+                            <font-awesome-icon :icon="['far', 'eye']" @click="selectFolio('r18v6')"/>
+                        </span>
                     </span>
-                    Exultavit cor meum in salutari tuo. Cantabo Domino, qui bona tribuit mihi, et psallam nomini Domini altissimi.
+                    <span @click="selectFolio('r18')">
+                        Exultavit cor meum in salutari tuo. Cantabo Domino, qui bona tribuit mihi, et psallam nomini Domini altissimi.
+                    </span>
                 </p>
             </section>
         </div>
@@ -71,7 +103,7 @@
                 <transition name="fade" mode="out-in">
                     <div class="lom--psalm-content" v-if="verse.id === 1" key="commentary-1">
                         <p>
-                            Titulus. In finem Psalmus David. Titulus iste patet. Psalmus iste agit de caritate Christi, in qua totius legis perfectio est, quam qui habet, mundum non amat. Hic enim propheta plenus caritate, <span class="lom--interlinear-gloss">qua</span> avide Christi incarnationem expectat, per quam futuram redemptionem intelligit, in persona antiquorum patrum, quasi de dilatione conqueritur. In quo etiam dilectio proximi ostenditur, cuius saluti hoc optatur, ut superstitione abiecta unius Dei cultura suscipiatur. Vel in persona sanctorum modernorum loquitur, secundum Christi adventum desiderantium, ubi certi sunt de salute. Quanto enim desiderio antiqui primum desideraverunt adventum, tanto moderni secundum cupiunt, iuxta illud: Cupio dissolvi et esse cum Christo. Intentio. Ad idem desiderium invitat. Modus. Bipartitus est. Prima pars est conquestio de dilactione adventus primi secundus antiquos, secundi iuxta modernos. Secundo, orat illuminari ne cedat fraudibus inimici, ibi, <span class="lom--psalm-highlight">respice</span>, etc. Prius ergo propheta in persona antiquorum de incarationis dilatione conquerentium ait: <span class="lom--psalm-highlight">O Domine, oblivisceris me</span>, id est presentiam incarnationis mihi subtrahis, usque <span class="lom--psalm-highlight">in finem</span>, id est usque ad tempus plenitudinis. Unde Apostolus: Cum venit plenitudo temporis misit Deus Filium suum etc. Et <span class="lom--psalm-highlight">usquequo</span> exspectabitur hoc? Deinde repetit aliis verbis: <span class="lom--psalm-highlight">avertis faciem tuam a me</span>, <span :class="['lom--has-marginalia', {'lom--active': marginalia.verse === 1 && marginalia.position === 0}]" @click="showMarginalia(1, 0)">scilicet presentiam Filii tui, qui est facies tua, que hominibus videnda est. Et <span class="lom--psalm-highlight">usquequo</span> erit hoc?</span>
+                            Titulus. In finem Psalmus David. Titulus iste patet. Psalmus iste agit de caritate Christi, in qua totius legis perfectio est, quam qui habet, mundum non amat. Hic enim propheta plenus caritate, <span class="lom--interlinear-gloss">qua</span> avide Christi incarnationem expectat, per quam futuram redemptionem intelligit, in persona antiquorum patrum, quasi de dilatione conqueritur. In quo etiam dilectio proximi ostenditur, cuius saluti hoc optatur, ut superstitione abiecta unius Dei cultura suscipiatur. Vel in persona sanctorum modernorum loquitur, secundum Christi adventum desiderantium, ubi certi sunt de salute. Quanto enim desiderio antiqui primum desideraverunt adventum, tanto moderni secundum cupiunt, iuxta illud: Cupio dissolvi et esse cum Christo. Intentio. Ad idem desiderium invitat. Modus. Bipartitus est. Prima pars est conquestio de dilactione adventus primi secundus antiquos, secundi iuxta modernos. Secundo, orat illuminari ne cedat fraudibus inimici, ibi, <span class="lom--psalm-highlight">respice</span>, etc. Prius ergo propheta in persona antiquorum de incarationis dilatione conquerentium ait: <span class="lom--psalm-highlight">O Domine, oblivisceris me</span>, id est presentiam incarnationis mihi subtrahis, usque <span class="lom--psalm-highlight">in finem</span>, id est usque ad tempus plenitudinis. Unde Apostolus: Cum venit plenitudo temporis misit Deus Filium suum etc. Et <span class="lom--psalm-highlight">usquequo</span> exspectabitur hoc? Deinde repetit aliis verbis: <span class="lom--psalm-highlight">avertis faciem tuam a me</span>, <span :class="['lom--has-marginalia', {'lom--active': marginalia.verse === 1 && marginalia.position === 0}]" @click="showMarginalia(1, 0)"><font-awesome-icon :icon="['far', 'sticky-note']"/> scilicet presentiam Filii tui, qui est facies tua, que hominibus videnda est. Et <span class="lom--psalm-highlight">usquequo</span> erit hoc?</span>
                         </p>
                     </div>
 
@@ -88,7 +120,7 @@
 <div class="lom--church-authors">
                             <div :class="['lom--authors', {'lom--author-active': author.quotation === 0}]" @click="openAuthor('au', 0)">
                                 <font-awesome-icon :icon="['far', 'user']" /><br>
-                                ag
+                                au
                             </div>
                             <div :class="['lom--authors', {'lom--author-active': author.quotation === 1}]" @click="openAuthor('ca', 1)">
                                 <font-awesome-icon :icon="['far', 'user']" />
@@ -115,7 +147,7 @@
                         <div class="lom--church-authors">
                             <div :class="['lom--authors', {'lom--author-active': author.quotation === 4}]" @click="openAuthor('au', 4)">
                                 <font-awesome-icon :icon="['far', 'user']" /><br>
-                                ag
+                                au
                             </div>
                         </div>
                         <p>
@@ -131,7 +163,7 @@
 
                     <div class="lom--psalm-content" v-else-if="verse.id === 5" key="commentary-5">
                         <p>
-                            <span class="lom--psalm-highlight">Qui tribulant,</span> scilicet diabolus et angeli eius <span class="lom--psalm-highlight">exultabunt si motus fuero</span> de stabilitate fidei. Acsi diceret: Non solum propter me debes illuminare, sed et propter hoc ne inimicus gaudeat. Sequitur: <span class="lom--psalm-highlight">Ego autem in misericordia</span>, quasi illi tribulant, <span class="lom--psalm-highlight">ego autem in tua misericordia speravi</span>, non de me presumpsi, qui etiam id ipsum, quod non commovetur, non sibi dat, sed Deo. Vel in <span class="lom--psalm-highlight">misericordia tua speravi</span>, scilicet de adventu Filii. Quia etsi festinat iste vir sanctus, tamen est patiens, quia etsi differtur, quod desiderat, <span :class="['lom--has-marginalia', {'lom--active': marginalia.verse === 5 && marginalia.position === 1}]" @click="showMarginalia(5, 1)">exsultat. Unde subdit:</span>
+                            <span class="lom--psalm-highlight">Qui tribulant,</span> scilicet diabolus et angeli eius <span class="lom--psalm-highlight">exultabunt si motus fuero</span> de stabilitate fidei. Acsi diceret: Non solum propter me debes illuminare, sed et propter hoc ne inimicus gaudeat. Sequitur: <span class="lom--psalm-highlight">Ego autem in misericordia</span>, quasi illi tribulant, <span class="lom--psalm-highlight">ego autem in tua misericordia speravi</span>, non de me presumpsi, qui etiam id ipsum, quod non commovetur, non sibi dat, sed Deo. Vel in <span class="lom--psalm-highlight">misericordia tua speravi</span>, scilicet de adventu Filii. Quia etsi festinat iste vir sanctus, tamen est patiens, quia etsi differtur, quod desiderat, <span :class="['lom--has-marginalia', {'lom--active': marginalia.verse === 5 && marginalia.position === 1}]" @click="showMarginalia(5, 1)"><font-awesome-icon :icon="['far', 'sticky-note']"/> exsultat. Unde subdit:</span>
                         </p>
                     </div>
 
@@ -151,7 +183,7 @@
                         close
                     </div>
                     <h2 class="lom--psalm-subtitle">
-                        {{ this.authors.sources[this.author.quotation].word }}
+                        Source
                     </h2>
 
                     <p>
@@ -180,12 +212,26 @@
                     <p>
                         {{ glosses[this.marginalia.verse][this.marginalia.position].text }}
                     </p>
+                    <div class="lom--marginalia-image">
+                        <h3 class="lom-marginalia-title">
+                            Preview
+                        </h3>
+                        <img :src="glosses[this.marginalia.verse][this.marginalia.position].img" width="100%">
+                    </div>
                     <div v-if="glosses[this.marginalia.verse][this.marginalia.position].desc !== null">
                         <h3 class="lom-marginalia-title">
-                            Information
+                            Description
                         </h3>
                         <p class="lom-marginalia-desc" v-html="glosses[this.marginalia.verse][this.marginalia.position].desc"></p>
                     </div>
+                </section>
+                <section class="lom--preview-cell" v-else>
+                    <img-view :imgUrl="folio[folio.selected].src"
+                              class="lom--preview-height"
+                              :position="folio[folio.selected].position"
+                              :size="folio[folio.selected].size"
+                              background="#F9F9F9"
+                    ></img-view>
                 </section>
             </transition>
         </div>
@@ -193,10 +239,79 @@
 </template>
 
 <script>
+    import ImgView from './VueImage'
+
     export default {
         name: "Page--PsalmSingle",
         data() {
             return {
+                folio: {
+                    selected: 'v17',
+                    v17: {
+                        src: '/public/folios/17.jpg',
+                        position: {
+                            x: -434,
+                            y: -40,
+                        },
+                        size: 2
+                    },
+                    v17v1: {
+                        src: '/public/folios/17v1.jpg',
+                        position: {
+                            x: -743,
+                            y: -643,
+                        },
+                        size: 3
+                    },
+                    r18: {
+                        src: '/public/folios/18.jpg',
+                        position: {
+                            x: 0,
+                            y: 0,
+                        },
+                        size: 2
+                    },
+                    r18v2: {
+                        src: '/public/folios/18v2.jpg',
+                        position: {
+                            x: -71,
+                            y: -16,
+                        },
+                        size: 2.75
+                    },
+                    r18v3: {
+                        src: '/public/folios/18v3.jpg',
+                        position: {
+                            x: -77,
+                            y: -134,
+                        },
+                        size: 2.75
+                    },
+                    r18v4: {
+                        src: '/public/folios/18v4.jpg',
+                        position: {
+                            x: -83,
+                            y: -495,
+                        },
+                        size: 2.75
+                    },
+                    r18v5: {
+                        src: '/public/folios/18v5.jpg',
+                        position: {
+                            x: -330,
+                            y: -20,
+                        },
+                        size: 2
+                    },
+                    r18v6: {
+                        src: '/public/folios/18v6.jpg',
+                        position: {
+                            x: -485,
+                            y: -107,
+                        },
+                        size: 2.5
+                    }
+                },
                 author: {
                     visible: false,
                     quotation: null,
@@ -251,13 +366,15 @@
                     0: [
                         {
                             text: 'In persona antiquorum propheta conqueritur; 1. De dilatione incarnationis unde usquequo; 2. De multitudine ceremoniarum unde quamdiu; 3. De exaltatione inimici unde usquequo exaltabitur',
-                            desc: "Resume for verses 1 - 3."
+                            desc: "Resume for verses 1 - 3.",
+                            img: '/public/folios/gloss-1-3v.jpg'
                         }
                     ],
                     1: [
                         {
                             text: "Filius dicitur facies patris quod sicut homo cognoscitur per faciem ita Pater cognoscitur per Filium ab hiis quibus Filius demonstravit undem Philippe, qui videt me etc…",
-                            desc: null
+                            desc: null,
+                            img: '/public/folios/gloss-1v1.jpg'
                         }
                     ],
                     5: [
@@ -267,13 +384,18 @@
                         },
                         {
                             text: "firmus est in spe et interus iam videns illum quem in carne desiderat videre",
-                            desc: null
+                            desc: null,
+                            img: '/public/folios/gloss-5v1.jpg'
                         }
                     ]
                 }
             }
         },
         methods: {
+            selectFolio(id) {
+                this.closeAll();
+                this.folio.selected = id;
+            },
             openAuthor(short, id) {
                 if (id === this.author.quotation) {
                     this.closeAll();
@@ -284,7 +406,7 @@
                     this.author.short = short;
                 }
             },
-            openVerse(id, marginalia = -1) {
+            openVerse(id, marginalia = -1, folio = -1) {
                 if (this.verse.id !== id) {
                     this.closeAll();
                 }
@@ -297,10 +419,14 @@
                     this.showMarginalia(marginalia[0], marginalia[1]);
                 }
 
+                if (folio > -1) {
+                    this.selectFolio(folio);
+                }
+
                 this.verse.id = id;
             },
-            openVerseWithMarginalia(verse, marginalia) {
-                this.openVerse(verse, marginalia);
+            openVerseWithMarginalia(verse, marginalia, folio = -1) {
+                this.openVerse(verse, marginalia, folio);
             },
             showMarginalia(verse, marginalia) {
                 this.marginalia.verse = verse;
@@ -322,6 +448,9 @@
                 this.marginalia.verse = null;
                 this.marginalia.position = null;
             }
+        },
+        components: {
+            ImgView
         },
         created() {
             if (this.$route.hash > 0) {

@@ -7,17 +7,17 @@
             <h1 class="lom--site-title">
                 <router-link to="/">
                     <strong>Peter Lombard</strong><br>
-                    Gloss on the Psalms
+                    Magna Glossatura
                 </router-link>
             </h1>
         </div>
         <div class="lom--cell">
         </div>
         <div class="lom--cell">
-            <form class="lom--search">
+            <div class="lom--search">
                 <font-awesome-icon :icon="['fa', 'search']" />
-                <input type="text" name="search" v-model="query" placeholder="Search in commentaries">
-            </form>
+                <input type="text" v-model="query" placeholder="Search in commentaries" @keyup.enter="search">
+            </div>
         </div>
     </header>
 </template>
@@ -44,7 +44,9 @@
 
         },
         methods: {
-
+            search() {
+                this.$router.push({name: 'psalm.search', params: {query: this.query}});
+            }
         }
     }
 </script>
