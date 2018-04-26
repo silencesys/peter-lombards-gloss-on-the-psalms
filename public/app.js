@@ -23651,6 +23651,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Page--PsalmSingle",
@@ -23662,7 +23707,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 short: null
             },
             marginalia: {
-                visible: false
+                visible: false,
+                verse: null,
+                position: null
             },
             verse: {
                 id: 1
@@ -23697,6 +23744,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     text: "Augustinus, Enarrationes in Psalmos, Psalmos XII, PL Col.140 v. 4",
                     quotation: "Oculos cordis oportet intelligi, ne delectabili defectu peccati claudantur […]"
                 }]
+            },
+            glosses: {
+                0: [{
+                    text: 'In persona antiquorum propheta conqueritur; 1. De dilatione incarnationis unde usquequo; 2. De multitudine ceremoniarum unde quamdiu; 3. De exaltatione inimici unde usquequo exaltabitur',
+                    desc: "Resume for verses 1 - 3."
+                }],
+                1: [{
+                    text: "Filius dicitur facies patris quod sicut homo cognoscitur per faciem ita Pater cognoscitur per Filium ab hiis quibus Filius demonstravit undem Philippe, qui videt me etc…",
+                    desc: null
+                }],
+                5: [{
+                    text: "… id est animalitati tue Si des anime tue concupiscentias[,] facies te gaudio inimicis tuis",
+                    desc: "This marginalia seems to be related to the whole verse."
+                }, {
+                    text: "firmus est in spe et interus iam videns illum quem in carne desiderat videre",
+                    desc: null
+                }]
             }
         };
     },
@@ -23704,23 +23768,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         openAuthor: function openAuthor(short, id) {
             if (id === this.author.quotation) {
-                this.closeAuthor();
+                this.closeAll();
             } else {
+                this.closeMarginalia();
                 this.author.visible = true;
                 this.author.quotation = id;
                 this.author.short = short;
             }
+        },
+        openVerse: function openVerse(id) {
+            var marginalia = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : -1;
+
+            if (this.verse.id !== id) {
+                this.closeAll();
+            }
+
+            if (typeof marginalia === 'number') {
+                if (marginalia !== -1) {
+                    this.showMarginalia(id, marginalia);
+                }
+            } else {
+                this.showMarginalia(marginalia[0], marginalia[1]);
+            }
+
+            this.verse.id = id;
+        },
+        openVerseWithMarginalia: function openVerseWithMarginalia(verse, marginalia) {
+            this.openVerse(verse, marginalia);
+        },
+        showMarginalia: function showMarginalia(verse, marginalia) {
+            this.marginalia.verse = verse;
+            this.marginalia.position = marginalia;
+            this.marginalia.visible = true;
+            this.author.visible = false;
+        },
+        closeAll: function closeAll() {
+            this.closeAuthor();
+            this.closeMarginalia();
         },
         closeAuthor: function closeAuthor() {
             this.author.visible = false;
             this.author.quotation = null;
             this.author.short = null;
         },
-        openVerse: function openVerse(id) {
-            if (this.verse.id !== id) {
-                this.closeAuthor();
-            }
-            this.verse.id = id;
+        closeMarginalia: function closeMarginalia() {
+            this.marginalia.visible = false;
+            this.marginalia.verse = null;
+            this.marginalia.position = null;
         }
     },
     created: function created() {
@@ -23742,7 +23836,7 @@ var render = function() {
     _c("div", { staticClass: "lom--cell" }, [
       _c("section", { staticClass: "lom--psalm-verses" }, [
         _c("h2", { staticClass: "lom--psalm-title" }, [
-          _vm._v("\n                Psalm 12\n            ")
+          _vm._v("\n                    Psalm 12\n                ")
         ]),
         _vm._v(" "),
         _c(
@@ -23754,7 +23848,17 @@ var render = function() {
               { staticClass: "lom--ps-title-icon", attrs: { to: "/" } },
               [
                 _c("font-awesome-icon", { attrs: { icon: ["far", "file"] } }),
-                _vm._v("\n                    View\n                ")
+                _vm._v("\n                        17v\n                    ")
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              { staticClass: "lom--ps-title-icon", attrs: { to: "/" } },
+              [
+                _c("font-awesome-icon", { attrs: { icon: ["far", "file"] } }),
+                _vm._v("\n                        18r\n                    ")
               ],
               1
             ),
@@ -23766,7 +23870,7 @@ var render = function() {
                 _c("font-awesome-icon", {
                   attrs: { icon: ["fab", "youtube"] }
                 }),
-                _vm._v("\n                    Listen\n                ")
+                _vm._v("\n                        Listen\n                    ")
               ],
               1
             )
@@ -23785,8 +23889,25 @@ var render = function() {
             }
           },
           [
+            _c(
+              "span",
+              { staticClass: "lom--detail-panel" },
+              [
+                _c("font-awesome-icon", {
+                  attrs: { icon: ["far", "sticky-note"] },
+                  on: {
+                    click: function($event) {
+                      _vm.openVerseWithMarginalia(1, [0, 0])
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("font-awesome-icon", { attrs: { icon: ["far", "eye"] } })
+              ],
+              1
+            ),
             _vm._v(
-              "\n                Usquequo, Domine, oblivisceris me in finem? Usquequo avertis faciem tuam a me?\n            "
+              "\n                    Usquequo, Domine, oblivisceris me in finem? Usquequo avertis faciem tuam a me?\n                "
             )
           ]
         ),
@@ -23802,8 +23923,25 @@ var render = function() {
             }
           },
           [
+            _c(
+              "span",
+              { staticClass: "lom--detail-panel" },
+              [
+                _c("font-awesome-icon", {
+                  attrs: { icon: ["far", "sticky-note"] },
+                  on: {
+                    click: function($event) {
+                      _vm.openVerseWithMarginalia(2, [0, 0])
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("font-awesome-icon", { attrs: { icon: ["far", "eye"] } })
+              ],
+              1
+            ),
             _vm._v(
-              "\n                Quamdiu ponam consilia in anima mea, dolorem in corde meo per diem?\n            "
+              "\n                    Quamdiu ponam consilia in anima mea, dolorem in corde meo per diem?\n                "
             )
           ]
         ),
@@ -23819,8 +23957,25 @@ var render = function() {
             }
           },
           [
+            _c(
+              "span",
+              { staticClass: "lom--detail-panel" },
+              [
+                _c("font-awesome-icon", {
+                  attrs: { icon: ["far", "sticky-note"] },
+                  on: {
+                    click: function($event) {
+                      _vm.openVerseWithMarginalia(3, [0, 0])
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("font-awesome-icon", { attrs: { icon: ["far", "eye"] } })
+              ],
+              1
+            ),
             _vm._v(
-              "\n                Usquequo exaltabitur inimicus meus super me? Respice et exaudi me, Domine Deus meus.\n            "
+              "\n                    Usquequo exaltabitur inimicus meus super me? Respice et exaudi me, Domine Deus meus.\n                "
             )
           ]
         ),
@@ -23836,8 +23991,14 @@ var render = function() {
             }
           },
           [
+            _c(
+              "span",
+              { staticClass: "lom--detail-panel" },
+              [_c("font-awesome-icon", { attrs: { icon: ["far", "eye"] } })],
+              1
+            ),
             _vm._v(
-              "\n                Illumina oculos meos, ne umquam obdormiam in morte. Nequando dicat inimicus meus: Prevalui adversus eum.\n            "
+              "\n                    Illumina oculos meos, ne umquam obdormiam in morte. Nequando dicat inimicus meus: Prevalui adversus eum.\n                "
             )
           ]
         ),
@@ -23853,8 +24014,25 @@ var render = function() {
             }
           },
           [
+            _c(
+              "span",
+              { staticClass: "lom--detail-panel" },
+              [
+                _c("font-awesome-icon", {
+                  attrs: { icon: ["far", "sticky-note"] },
+                  on: {
+                    click: function($event) {
+                      _vm.openVerseWithMarginalia(5, [5, 0])
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("font-awesome-icon", { attrs: { icon: ["far", "eye"] } })
+              ],
+              1
+            ),
             _vm._v(
-              "\n                Qui tribulant me, exultabunt, si motus fuero. Ego autem in misericordia tua speravi.\n            "
+              "\n                    Qui tribulant me, exultabunt, si motus fuero. Ego autem in misericordia tua speravi.\n                "
             )
           ]
         ),
@@ -23870,8 +24048,14 @@ var render = function() {
             }
           },
           [
+            _c(
+              "span",
+              { staticClass: "lom--detail-panel" },
+              [_c("font-awesome-icon", { attrs: { icon: ["far", "eye"] } })],
+              1
+            ),
             _vm._v(
-              "\n                Exultavit cor meum in salutari tuo. Cantabo Domino, qui bona tribuit mihi, et psallam nomini Domini altissimi.\n            "
+              "\n                    Exultavit cor meum in salutari tuo. Cantabo Domino, qui bona tribuit mihi, et psallam nomini Domini altissimi.\n                "
             )
           ]
         )
@@ -23884,7 +24068,9 @@ var render = function() {
         { staticClass: "lom--psalm-commentaries" },
         [
           _c("h2", { staticClass: "lom--psalm-subtitle" }, [
-            _vm._v("\n                Lombard's commentary\n            ")
+            _vm._v(
+              "\n                    Lombard's commentary\n                "
+            )
           ]),
           _vm._v(" "),
           _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
@@ -23893,212 +24079,70 @@ var render = function() {
                   "div",
                   { key: "commentary-1", staticClass: "lom--psalm-content" },
                   [
-                    _c("div", { staticClass: "lom--church-authors" }, [
-                      _c(
-                        "div",
-                        {
-                          class: [
-                            "lom--authors",
-                            { "lom--author-active": _vm.author.quotation === 0 }
-                          ],
-                          on: {
-                            click: function($event) {
-                              _vm.openAuthor("au", 0)
-                            }
-                          }
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["far", "user"] }
-                          }),
-                          _c("br"),
-                          _vm._v(
-                            "\n                            ag\n                        "
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          class: [
-                            "lom--authors",
-                            { "lom--author-active": _vm.author.quotation === 1 }
-                          ],
-                          on: {
-                            click: function($event) {
-                              _vm.openAuthor("ca", 1)
-                            }
-                          }
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["far", "user"] }
-                          }),
-                          _vm._v(
-                            "\n                            cas\n                        "
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          class: [
-                            "lom--authors",
-                            { "lom--author-active": _vm.author.quotation === 2 }
-                          ],
-                          on: {
-                            click: function($event) {
-                              _vm.openAuthor("ca", 2)
-                            }
-                          }
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["far", "user"] }
-                          }),
-                          _vm._v(
-                            "\n                            cas\n                        "
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          class: [
-                            "lom--authors",
-                            { "lom--author-active": _vm.author.quotation === 3 }
-                          ],
-                          on: {
-                            click: function($event) {
-                              _vm.openAuthor("ca", 3)
-                            }
-                          }
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["far", "user"] }
-                          }),
-                          _vm._v(
-                            "\n                            cas\n                        "
-                          )
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
                     _c("p", [
-                      _c("span", { staticClass: "lom--psalm-highlight" }, [
-                        _vm._v("Usquequo exaltabitur inimicus meus")
-                      ]),
-                      _vm._v(", id est "),
-                      _c(
-                        "span",
-                        {
-                          class: [
-                            "lom--author",
-                            { "lom--author-active": _vm.author.quotation === 0 }
-                          ],
-                          on: {
-                            click: function($event) {
-                              _vm.openAuthor("au", 0)
-                            }
-                          }
-                        },
-                        [_vm._v("diabolus")]
-                      ),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "lom--psalm-highlight" }, [
-                        _vm._v("super me")
-                      ]),
-                      _vm._v(". Hoc "),
-                      _c(
-                        "span",
-                        {
-                          class: [
-                            "lom--author",
-                            { "lom--author-active": _vm.author.quotation === 1 }
-                          ],
-                          on: {
-                            click: function($event) {
-                              _vm.openAuthor("ca", 1)
-                            }
-                          }
-                        },
-                        [_vm._v("ideo")]
-                      ),
                       _vm._v(
-                        " dicit, quia ante adventum Christi diabolus captivos tenebat homines. Vel "
+                        "\n                            Titulus. In finem Psalmus David. Titulus iste patet. Psalmus iste agit de caritate Christi, in qua totius legis perfectio est, quam qui habet, mundum non amat. Hic enim propheta plenus caritate, "
                       ),
-                      _c("span", { staticClass: "lom--psalm-highlight" }, [
-                        _vm._v("super me")
+                      _c("span", { staticClass: "lom--interlinear-gloss" }, [
+                        _vm._v("qua")
                       ]),
                       _vm._v(
-                        ", id est super meam credulitatem, quia ille toto orbe colitur, mea fides est in paucis. Et quia sic orbis interit, plorat hic sanctus.\n                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("span", { staticClass: "lom--psalm-highlight" }, [
-                        _vm._v("Respice")
-                      ]),
-                      _vm._v(". Secunda pars. "),
-                      _c(
-                        "span",
-                        {
-                          class: [
-                            "lom--author",
-                            { "lom--author-active": _vm.author.quotation === 2 }
-                          ],
-                          on: {
-                            click: function($event) {
-                              _vm.openAuthor("ca", 2)
-                            }
-                          }
-                        },
-                        [_vm._v("Post")]
+                        " avide Christi incarnationem expectat, per quam futuram redemptionem intelligit, in persona antiquorum patrum, quasi de dilatione conqueritur. In quo etiam dilectio proximi ostenditur, cuius saluti hoc optatur, ut superstitione abiecta unius Dei cultura suscipiatur. Vel in persona sanctorum modernorum loquitur, secundum Christi adventum desiderantium, ubi certi sunt de salute. Quanto enim desiderio antiqui primum desideraverunt adventum, tanto moderni secundum cupiunt, iuxta illud: Cupio dissolvi et esse cum Christo. Intentio. Ad idem desiderium invitat. Modus. Bipartitus est. Prima pars est conquestio de dilactione adventus primi secundus antiquos, secundi iuxta modernos. Secundo, orat illuminari ne cedat fraudibus inimici, ibi, "
                       ),
-                      _vm._v(
-                        " conquestionem orat, ut illuminetur, ne cedat fraudibus inimici iste, qui in misericordia confidit. Quasi modo dolor est, cum facies tua est aversa, cum exaltabatur inimicus, sed o "
-                      ),
-                      _c("span", { staticClass: "lom--psalm-highlight" }, [
-                        _vm._v("Domine")
-                      ]),
-                      _vm._v(", cuius ego sum servus, qui es "),
-                      _c("span", { staticClass: "lom--psalm-highlight" }, [
-                        _vm._v("Deus meus")
-                      ]),
-                      _vm._v(", cuius sum creatura, "),
                       _c("span", { staticClass: "lom--psalm-highlight" }, [
                         _vm._v("respice")
                       ]),
-                      _vm._v(", id est "),
+                      _vm._v(
+                        ", etc. Prius ergo propheta in persona antiquorum de incarationis dilatione conquerentium ait: "
+                      ),
+                      _c("span", { staticClass: "lom--psalm-highlight" }, [
+                        _vm._v("O Domine, oblivisceris me")
+                      ]),
+                      _vm._v(
+                        ", id est presentiam incarnationis mihi subtrahis, usque "
+                      ),
+                      _c("span", { staticClass: "lom--psalm-highlight" }, [
+                        _vm._v("in finem")
+                      ]),
+                      _vm._v(
+                        ", id est usque ad tempus plenitudinis. Unde Apostolus: Cum venit plenitudo temporis misit Deus Filium suum etc. Et "
+                      ),
+                      _c("span", { staticClass: "lom--psalm-highlight" }, [
+                        _vm._v("usquequo")
+                      ]),
+                      _vm._v(
+                        " exspectabitur hoc? Deinde repetit aliis verbis: "
+                      ),
+                      _c("span", { staticClass: "lom--psalm-highlight" }, [
+                        _vm._v("avertis faciem tuam a me")
+                      ]),
+                      _vm._v(", "),
                       _c(
                         "span",
                         {
                           class: [
-                            "lom--author",
-                            { "lom--author-active": _vm.author.quotation === 3 }
+                            "lom--has-marginalia",
+                            {
+                              "lom--active":
+                                _vm.marginalia.verse === 1 &&
+                                _vm.marginalia.position === 0
+                            }
                           ],
                           on: {
                             click: function($event) {
-                              _vm.openAuthor("ca", 3)
+                              _vm.showMarginalia(1, 0)
                             }
                           }
                         },
-                        [_vm._v("mitte")]
-                      ),
-                      _vm._v(" quem missurus es, et "),
-                      _c("span", { staticClass: "lom--psalm-highlight" }, [
-                        _vm._v("exaudi me")
-                      ]),
-                      _vm._v(
-                        ". Pro omnibus loquitur iste, pro quibus generaliter petit.\n                    "
+                        [
+                          _vm._v(
+                            "scilicet presentiam Filii tui, qui est facies tua, que hominibus videnda est. Et "
+                          ),
+                          _c("span", { staticClass: "lom--psalm-highlight" }, [
+                            _vm._v("usquequo")
+                          ]),
+                          _vm._v(" erit hoc?")
+                        ]
                       )
                     ])
                   ]
@@ -24109,24 +24153,31 @@ var render = function() {
                     { key: "commentary-2", staticClass: "lom--psalm-content" },
                     [
                       _c("p", [
-                        _vm._v(
-                          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas sed eos officia obcaecati ratione, voluptatem iusto deleniti nam "
-                        ),
                         _c("span", { staticClass: "lom--psalm-highlight" }, [
-                          _vm._v("debitis accusamus")
+                          _vm._v("Et quamdiu ponam consilia,")
+                        ]),
+                        _vm._v(" scilicet de diversis, ut qui anxius est "),
+                        _c("span", { staticClass: "lom--psalm-highlight" }, [
+                          _vm._v("in anima mea")
                         ]),
                         _vm._v(
-                          ", incidunt possimus, recusandae amet dignissimos consequatur beatae numquam quibusdam officiis."
+                          ". Magnus ardor sustinentis hic ostenditur, qui dicit sibi deesse consilium ut, id est qualiter videndi mitigit affectum.\n                        "
                         )
                       ]),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v("Nam reprehenderit fugiat "),
+                        _vm._v(
+                          "\n                            Quando autem magna anxietas est concupiscere bonum et diutius sustinere, crescit desiderium in dolorem, quia spes protrahitur. Unde subditur: Et quamdiu ponam "
+                        ),
                         _c("span", { staticClass: "lom--psalm-highlight" }, [
-                          _vm._v("natus quasi quas eum sapiente")
+                          _vm._v("dolorem in corde meo")
+                        ]),
+                        _vm._v(". Et hoc "),
+                        _c("span", { staticClass: "lom--psalm-highlight" }, [
+                          _vm._v("per diem")
                         ]),
                         _vm._v(
-                          ", aliquid eveniet asperiores mollitia, eius ducimus quisquam voluptatem, laborum tempore, consectetur aut optio. Facilis ipsam iusto quos voluptatem quia blanditiis accusantium doloribus."
+                          ", id est absolute, id est per singulos dies, quia…\n                        "
                         )
                       ])
                     ]
@@ -24139,25 +24190,236 @@ var render = function() {
                         staticClass: "lom--psalm-content"
                       },
                       [
-                        _c("p", [
-                          _vm._v("Donec vel mattis neque. "),
-                          _c("span", { staticClass: "lom--psalm-highlight" }, [
-                            _vm._v(
-                              "Vestibulum quis dolor at odio congue placerat at eu metus. Duis ac odio eget dolor bibendum elementum. Vivamus metus libero, auctor"
-                            )
-                          ]),
-                          _vm._v(
-                            " a sem nec, sodales imperdiet eros. Nunc in finibus metus, eget feugiat sem. Maecenas varius euismod tristique."
+                        _c("div", { staticClass: "lom--church-authors" }, [
+                          _c(
+                            "div",
+                            {
+                              class: [
+                                "lom--authors",
+                                {
+                                  "lom--author-active":
+                                    _vm.author.quotation === 0
+                                }
+                              ],
+                              on: {
+                                click: function($event) {
+                                  _vm.openAuthor("au", 0)
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["far", "user"] }
+                              }),
+                              _c("br"),
+                              _vm._v(
+                                "\n                                ag\n                            "
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: [
+                                "lom--authors",
+                                {
+                                  "lom--author-active":
+                                    _vm.author.quotation === 1
+                                }
+                              ],
+                              on: {
+                                click: function($event) {
+                                  _vm.openAuthor("ca", 1)
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["far", "user"] }
+                              }),
+                              _vm._v(
+                                "\n                                cas\n                            "
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: [
+                                "lom--authors",
+                                {
+                                  "lom--author-active":
+                                    _vm.author.quotation === 2
+                                }
+                              ],
+                              on: {
+                                click: function($event) {
+                                  _vm.openAuthor("ca", 2)
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["far", "user"] }
+                              }),
+                              _vm._v(
+                                "\n                                cas\n                            "
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class: [
+                                "lom--authors",
+                                {
+                                  "lom--author-active":
+                                    _vm.author.quotation === 3
+                                }
+                              ],
+                              on: {
+                                click: function($event) {
+                                  _vm.openAuthor("ca", 3)
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["far", "user"] }
+                              }),
+                              _vm._v(
+                                "\n                                cas\n                            "
+                              )
+                            ],
+                            1
                           )
                         ]),
                         _vm._v(" "),
                         _c("p", [
-                          _vm._v("Nam reprehenderit fugiat "),
                           _c("span", { staticClass: "lom--psalm-highlight" }, [
-                            _vm._v("natus quasi quas eum sapiente")
+                            _vm._v("Usquequo exaltabitur inimicus meus")
+                          ]),
+                          _vm._v(", id est "),
+                          _c(
+                            "span",
+                            {
+                              class: [
+                                "lom--author",
+                                {
+                                  "lom--author-active":
+                                    _vm.author.quotation === 0
+                                }
+                              ],
+                              on: {
+                                click: function($event) {
+                                  _vm.openAuthor("au", 0)
+                                }
+                              }
+                            },
+                            [_vm._v("diabolus")]
+                          ),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "lom--psalm-highlight" }, [
+                            _vm._v("super me")
+                          ]),
+                          _vm._v(". Hoc "),
+                          _c(
+                            "span",
+                            {
+                              class: [
+                                "lom--author",
+                                {
+                                  "lom--author-active":
+                                    _vm.author.quotation === 1
+                                }
+                              ],
+                              on: {
+                                click: function($event) {
+                                  _vm.openAuthor("ca", 1)
+                                }
+                              }
+                            },
+                            [_vm._v("ideo")]
+                          ),
+                          _vm._v(
+                            " dicit, quia ante adventum Christi diabolus captivos tenebat homines. Vel "
+                          ),
+                          _c("span", { staticClass: "lom--psalm-highlight" }, [
+                            _vm._v("super me")
                           ]),
                           _vm._v(
-                            ", aliquid eveniet asperiores mollitia, eius ducimus quisquam voluptatem, laborum tempore, consectetur aut optio. Facilis ipsam iusto quos voluptatem quia blanditiis accusantium doloribus."
+                            ", id est super meam credulitatem, quia ille toto orbe colitur, mea fides est in paucis. Et quia sic orbis interit, plorat hic sanctus.\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("span", { staticClass: "lom--psalm-highlight" }, [
+                            _vm._v("Respice")
+                          ]),
+                          _vm._v(". Secunda pars. "),
+                          _c(
+                            "span",
+                            {
+                              class: [
+                                "lom--author",
+                                {
+                                  "lom--author-active":
+                                    _vm.author.quotation === 2
+                                }
+                              ],
+                              on: {
+                                click: function($event) {
+                                  _vm.openAuthor("ca", 2)
+                                }
+                              }
+                            },
+                            [_vm._v("Post")]
+                          ),
+                          _vm._v(
+                            " conquestionem orat, ut illuminetur, ne cedat fraudibus inimici iste, qui in misericordia confidit. Quasi modo dolor est, cum facies tua est aversa, cum exaltabatur inimicus, sed o "
+                          ),
+                          _c("span", { staticClass: "lom--psalm-highlight" }, [
+                            _vm._v("Domine")
+                          ]),
+                          _vm._v(", cuius ego sum servus, qui es "),
+                          _c("span", { staticClass: "lom--psalm-highlight" }, [
+                            _vm._v("Deus meus")
+                          ]),
+                          _vm._v(", cuius sum creatura, "),
+                          _c("span", { staticClass: "lom--psalm-highlight" }, [
+                            _vm._v("respice")
+                          ]),
+                          _vm._v(", id est "),
+                          _c(
+                            "span",
+                            {
+                              class: [
+                                "lom--author",
+                                {
+                                  "lom--author-active":
+                                    _vm.author.quotation === 3
+                                }
+                              ],
+                              on: {
+                                click: function($event) {
+                                  _vm.openAuthor("ca", 3)
+                                }
+                              }
+                            },
+                            [_vm._v("mitte")]
+                          ),
+                          _vm._v(" quem missurus es, et "),
+                          _c("span", { staticClass: "lom--psalm-highlight" }, [
+                            _vm._v("exaudi me")
+                          ]),
+                          _vm._v(
+                            ". Pro omnibus loquitur iste, pro quibus generaliter petit.\n                        "
                           )
                         ])
                       ]
@@ -24193,7 +24455,7 @@ var render = function() {
                                 }),
                                 _c("br"),
                                 _vm._v(
-                                  "\n                            ag\n                        "
+                                  "\n                                ag\n                            "
                                 )
                               ],
                               1
@@ -24207,7 +24469,7 @@ var render = function() {
                               [_vm._v("Illumina oculos meos")]
                             ),
                             _vm._v(
-                              " interiores, ut si non corpore videamus [edition: videmus], vel id est saltem mente videamus. "
+                              " interiores, ut si non corpore videamus, vel id est saltem mente videamus. "
                             ),
                             _c(
                               "span",
@@ -24228,7 +24490,15 @@ var render = function() {
                               [_vm._v("Aliter")]
                             ),
                             _vm._v(
-                              " totum legitur ex persona modernorum sanctorum, secundum Christi adventum optantium, ut cum eo bene [i: beate] vivant, et pro dilatione conquerentium, sic o "
+                              " totum legitur ex persona modernorum sanctorum, secundum Christi adventum optantium, ut cum eo bene "
+                            ),
+                            _c(
+                              "span",
+                              { staticClass: "lom--interlinear-gloss" },
+                              [_vm._v("beate")]
+                            ),
+                            _vm._v(
+                              " vivant, et pro dilatione conquerentium, sic o "
                             ),
                             _c(
                               "span",
@@ -24240,7 +24510,7 @@ var render = function() {
                               ]
                             ),
                             _vm._v(
-                              " capiendum, id est [edition: sit], quousque differs me ad intelligendum Christum spiritualiter, qui est Patris sapientia et finis rectus omnis intentionis. Et repetit: "
+                              " capiendum, id est, quousque differs me ad intelligendum Christum spiritualiter, qui est Patris sapientia et finis rectus omnis intentionis. Et repetit: "
                             ),
                             _c(
                               "span",
@@ -24272,7 +24542,7 @@ var render = function() {
                               [_vm._v("dolorem in corde")]
                             ),
                             _vm._v(
-                              " etc. [linked: per diem]. Diem ponit pro isto seculo, quo vult exui dolens, precans que eterna, vel per diem, id est continue. Vel non sub interrogatione dicitur istud, "
+                              " etc. Diem ponit pro isto seculo, quo vult exui dolens, precans que eterna, vel per diem, id est continue. Vel non sub interrogatione dicitur istud, "
                             ),
                             _c(
                               "span",
@@ -24296,13 +24566,13 @@ var render = function() {
                               [_vm._v("in anima mea")]
                             ),
                             _vm._v(
-                              ", ut nisi ponat quisque consilium in anima sua tale, scilicet ut operetur misericordiam, non eum dirigat Deus in finem, neque det ei plenam sui notitiam, ut eum facie ad faciem videat.\n                    "
+                              ", ut nisi ponat quisque consilium in anima sua tale, scilicet ut operetur misericordiam, non eum dirigat Deus in finem, neque det ei plenam sui notitiam, ut eum facie ad faciem videat.\n                        "
                             )
                           ]),
                           _vm._v(" "),
                           _c("p", [
                             _vm._v(
-                              "\n                        Deinde sequitur: Quamdiu ponam "
+                              "\n                            Deinde sequitur: Quamdiu ponam "
                             ),
                             _c(
                               "span",
@@ -24320,7 +24590,7 @@ var render = function() {
                               ]
                             ),
                             _vm._v(
-                              ", scilicet diabolus, vel carnalis consuetudo. Ut autem hoc tollatur?\n                    "
+                              ", scilicet diabolus, vel carnalis consuetudo. Ut autem hoc tollatur?\n                        "
                             )
                           ]),
                           _vm._v(" "),
@@ -24363,7 +24633,7 @@ var render = function() {
                               [_vm._v("in morte")]
                             ),
                             _vm._v(
-                              ", id est in peccato, quod fit in Spiritum sanctum, de quo dicit Iohannes: Est peccatum ad mortem, non pro eo dico ut quis oret [1John 5:16]. Dico non obdormiam per me, nec etiam per alium. Et hoc est "
+                              ", id est in peccato, quod fit in Spiritum sanctum, de quo dicit Iohannes: Est peccatum ad mortem, non pro eo dico ut quis oret. Dico non obdormiam per me, nec etiam per alium. Et hoc est "
                             ),
                             _c(
                               "span",
@@ -24379,7 +24649,7 @@ var render = function() {
                               [_vm._v("Prevalui adversus eum?")]
                             ),
                             _vm._v(
-                              " Ecce insultatio diaboli, que vehementer timenda est. Ideo dico, ne dicat inimicus, quia…\n                    "
+                              " Ecce insultatio diaboli, que vehementer timenda est. Ideo dico, ne dicat inimicus, quia…\n                        "
                             )
                           ])
                         ]
@@ -24393,38 +24663,64 @@ var render = function() {
                           },
                           [
                             _c("p", [
+                              _c(
+                                "span",
+                                { staticClass: "lom--psalm-highlight" },
+                                [_vm._v("Qui tribulant,")]
+                              ),
+                              _vm._v(" scilicet diabolus et angeli eius "),
+                              _c(
+                                "span",
+                                { staticClass: "lom--psalm-highlight" },
+                                [_vm._v("exultabunt si motus fuero")]
+                              ),
                               _vm._v(
-                                "Mauris finibus consequat tellus in bibendum. Donec scelerisque leo dui, sed semper augue vestibulum ac. Nunc sem lectus, volutpat eget tincidunt quis, vehicula quis elit. Aenean ut tincidunt quam. Morbi vestibulum aliquam turpis, et dapibus ante consequat vel. "
+                                " de stabilitate fidei. Acsi diceret: Non solum propter me debes illuminare, sed et propter hoc ne inimicus gaudeat. Sequitur: "
                               ),
                               _c(
                                 "span",
                                 { staticClass: "lom--psalm-highlight" },
-                                [_vm._v("Proin euismod egestas magna")]
+                                [_vm._v("Ego autem in misericordia")]
+                              ),
+                              _vm._v(", quasi illi tribulant, "),
+                              _c(
+                                "span",
+                                { staticClass: "lom--psalm-highlight" },
+                                [
+                                  _vm._v(
+                                    "ego autem in tua misericordia speravi"
+                                  )
+                                ]
                               ),
                               _vm._v(
-                                ", vel bibendum tellus dictum id. Quisque id odio mauris. Aenean ut neque eu lorem suscipit euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. "
+                                ", non de me presumpsi, qui etiam id ipsum, quod non commovetur, non sibi dat, sed Deo. Vel in "
                               ),
                               _c(
                                 "span",
                                 { staticClass: "lom--psalm-highlight" },
-                                [_vm._v("Praesent")]
+                                [_vm._v("misericordia tua speravi")]
                               ),
                               _vm._v(
-                                " a tellus vitae mauris vehicula consequat eu et felis."
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("p", [
-                              _vm._v(
-                                "In sodales sapien velit, eu sollicitudin erat efficitur sit amet. Aenean laoreet venenatis turpis, a lacinia velit congue volutpat. Nullam dapibus varius finibus. "
+                                ", scilicet de adventu Filii. Quia etsi festinat iste vir sanctus, tamen est patiens, quia etsi differtur, quod desiderat, "
                               ),
                               _c(
                                 "span",
-                                { staticClass: "lom--psalm-highlight" },
-                                [_vm._v("Proin id nulla porta")]
-                              ),
-                              _vm._v(
-                                ", sagittis ex et, blandit ante. Vestibulum dui orci, aliquet sit amet mi et, rutrum porttitor arcu. "
+                                {
+                                  class: [
+                                    "lom--has-marginalia",
+                                    {
+                                      "lom--active":
+                                        _vm.marginalia.verse === 5 &&
+                                        _vm.marginalia.position === 1
+                                    }
+                                  ],
+                                  on: {
+                                    click: function($event) {
+                                      _vm.showMarginalia(5, 1)
+                                    }
+                                  }
+                                },
+                                [_vm._v("exsultat. Unde subdit:")]
                               )
                             ])
                           ]
@@ -24439,19 +24735,53 @@ var render = function() {
                             [
                               _c("p", [
                                 _vm._v(
-                                  "Donec bibendum elementum justo a faucibus. Maecenas convallis vel risus et lobortis. Nunc viverra varius sollicitudin. "
+                                  "\n                            Exultavit cor meum, quasi speravi in misericordia, unde "
                                 ),
                                 _c(
                                   "span",
                                   { staticClass: "lom--psalm-highlight" },
                                   [
-                                    _vm._v(
-                                      "Duis sollicitudin metus id maximus fringilla"
-                                    )
+                                    _vm._v("exultabit vel "),
+                                    _c(
+                                      "span",
+                                      { staticClass: "lom--interlinear-gloss" },
+                                      [_vm._v("exulta")]
+                                    ),
+                                    _vm._v(" vit cor meum in salutari tuo")
                                   ]
                                 ),
                                 _vm._v(
-                                  ". Nunc cursus elit vitae nulla aliquam, faucibus egestas lorem porta. Aenean efficitur iaculis elit, eu sodales tortor. Phasellus congue felis nec placerat commodo. "
+                                  ", id est in Ihesu, quem mente venturum conspicio. Unde et sibi bona data dicit iste, qui prius conquerebatur subdens: Dominus "
+                                ),
+                                _c(
+                                  "span",
+                                  { staticClass: "lom--psalm-highlight" },
+                                  [_vm._v("tribuit mihi bona")]
+                                ),
+                                _vm._v(
+                                  " spiritualia, non ad humanum diem pertinentia. Et ei "
+                                ),
+                                _c(
+                                  "span",
+                                  { staticClass: "lom--psalm-highlight" },
+                                  [_vm._v("Domino, qui tribuit bona cantabo")]
+                                ),
+                                _vm._v(
+                                  " corde, scilicet cordis letitia, quod ad contemplativam vitam pertinet. Et nota quod ait, tribuit, non tribuet. In quo notatur magna virtus fidei. Iam enim habet, quod futurum est. Sequitur: Et psallam opere, quod ad activam vitam pertinet, psallam, dico, "
+                                ),
+                                _c(
+                                  "span",
+                                  { staticClass: "lom--psalm-highlight" },
+                                  [_vm._v("nomini Domini altissimi")]
+                                ),
+                                _vm._v(". Et est sensus: Cantabo et "),
+                                _c(
+                                  "span",
+                                  { staticClass: "lom--psalm-highlight" },
+                                  [_vm._v("psallam nomini Domini altissimi")]
+                                ),
+                                _vm._v(
+                                  ", id est cum gaudio gratias agam corde et opere. Si ergo iste fidelis tantum desiderat, si sic famulatur Christo, adhuc venturo. Quid faciendum est jam suscepto? Utique omni modo ei est famulandum.\n                        "
                                 )
                               ])
                             ]
@@ -24486,60 +24816,62 @@ var render = function() {
                     "div",
                     {
                       staticClass: "lom--close-button",
-                      on: { click: _vm.closeAuthor }
+                      on: { click: _vm.closeAll }
                     },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["far", "times"] }
                       }),
-                      _vm._v("\n                    close\n                ")
+                      _vm._v(
+                        "\n                        close\n                    "
+                      )
                     ],
                     1
                   ),
                   _vm._v(" "),
                   _c("h2", { staticClass: "lom--psalm-subtitle" }, [
                     _vm._v(
-                      "\n                    " +
+                      "\n                        " +
                         _vm._s(
                           this.authors.sources[this.author.quotation].word
                         ) +
-                        "\n                "
+                        "\n                    "
                     )
                   ]),
                   _vm._v(" "),
                   _c("p", [
                     _c("strong", [
                       _vm._v(
-                        "\n                        " +
+                        "\n                            " +
                           _vm._s(
                             this.authors.sources[this.author.quotation].text
                           ) +
-                          "\n                    "
+                          "\n                        "
                       )
                     ]),
                     _c("br"),
                     _vm._v(
-                      "\n                    " +
+                      "\n                        " +
                         _vm._s(
                           this.authors.sources[this.author.quotation].quotation
                         ) +
-                        "\n                "
+                        "\n                    "
                     )
                   ]),
                   _vm._v(" "),
                   _c("h3", { staticClass: "lom--psalm-author-title" }, [
                     _vm._v(
-                      "\n                    Who is " +
+                      "\n                        Who is " +
                         _vm._s(this.authors[this.author.short].name) +
-                        "?\n                "
+                        "?\n                    "
                     )
                   ]),
                   _vm._v(" "),
                   _c("p", [
                     _vm._v(
-                      "\n                    " +
+                      "\n                        " +
                         _vm._s(this.authors[this.author.short].bio) +
-                        "\n                "
+                        "\n                    "
                     )
                   ])
                 ]
@@ -24549,17 +24881,62 @@ var render = function() {
                   "section",
                   { key: "marginalia", staticClass: "lom--psalm-marginalia" },
                   [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "lom--close-button",
+                        on: { click: _vm.closeAll }
+                      },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["far", "times"] }
+                        }),
+                        _vm._v(
+                          "\n                        close\n                    "
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
                     _c("h2", { staticClass: "lom--psalm-subtitle" }, [
                       _vm._v(
-                        "\n                    Marginalia\n                "
+                        "\n                        Marginalia\n                    "
                       )
                     ]),
                     _vm._v(" "),
                     _c("p", [
                       _vm._v(
-                        "\n                    There are none.\n                "
+                        "\n                        " +
+                          _vm._s(
+                            _vm.glosses[this.marginalia.verse][
+                              this.marginalia.position
+                            ].text
+                          ) +
+                          "\n                    "
                       )
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.glosses[this.marginalia.verse][this.marginalia.position]
+                      .desc !== null
+                      ? _c("div", [
+                          _c("h3", { staticClass: "lom-marginalia-title" }, [
+                            _vm._v(
+                              "\n                            Information\n                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", {
+                            staticClass: "lom-marginalia-desc",
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.glosses[this.marginalia.verse][
+                                  this.marginalia.position
+                                ].desc
+                              )
+                            }
+                          })
+                        ])
+                      : _vm._e()
                   ]
                 )
               : _vm._e()
@@ -24655,6 +25032,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'Component--GuideOverlay',
@@ -24669,7 +25069,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         continueInGuide: function continueInGuide() {
-            if (this.step !== 2) {
+            if (this.step !== 3) {
                 this.step++;
             } else {
                 this.$emit('event-hideoverlay');
@@ -24704,23 +25104,59 @@ var render = function() {
                       _vm._v(" "),
                       _c("p", [
                         _vm._v(
-                          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur autem animi quo nisi illo ab excepturi reprehenderit labore debitis amet maiores, velit illum asperiores quas magni cum corporis praesentium iure? Suscipit aperiam ad pariatur facere, et, eos nobis magni quo nesciunt ducimus sapiente ut quis, molestiae sed atque. Nemo possimus nisi, totam repellat quae asperiores explicabo veritatis a corporis. Quia."
+                          "\n                    Gloss is usually a short interlinear or marginal note, which can contain translation, interpretation of the text or simply reader’s comments. Gloss was frequently used by medieval scribes and therefore is an important part of the written culture in the Middle Ages.\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                    The manuscript Ii.3.24, University Library Cambridge, was written on parchment and is dated to the second half of the 12th century. Its place of origin is England. The main text consists of the Magna glosatura (ff. 1r-263v), written by Peter Lombard in the 12th century.\n                "
                         )
                       ])
                     ])
                   : _vm.step === 2
                     ? _c("div", { key: "slide-two" }, [
                         _c("h2", { staticClass: "lom--overlay-title" }, [
-                          _vm._v("Peter Lombard")
+                          _vm._v("About the Author")
                         ]),
                         _vm._v(" "),
                         _c("p", [
                           _vm._v(
-                            "Vestibulum tellus enim, varius id ornare eget, pharetra nec diam. Mauris pharetra quis lectus at semper. Sed et ullamcorper magna, vitae pharetra urna. Donec velit eros, feugiat vel mi ac, porta pulvinar odio. In hac habitasse platea dictumst. Nulla fermentum placerat erat, vitae sagittis lorem tristique et. Integer felis est, viverra ac ex maximus, ultricies dictum mauris. Fusce quis commodo turpis. Integer eget gravida elit, in aliquam felis. Etiam gravida non mi vel pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in dolor pellentesque, scelerisque mauris et, euismod tortor."
+                            "\n                    Peter Lombard (born c. 1100, Novara, Lombardy—died Aug. 21/22, 1160, Paris), bishop of Paris whose Four Books of Sentences(Sententiarum libri IV) was the standard theological text of the Middle Ages.\n                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "\n                    Lombard’s teachings were opposed during his lifetime and after his death. Later theologians rejected a number of his views, but he was never regarded as unorthodox, and efforts to have his works condemned were unsuccessful.\n                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "\n                    His collected works are in J.-P. Migne, Patrologia Latina, vol. 191–192. (Enciclopedia Brittanica)\n                "
                           )
                         ])
                       ])
-                    : _vm._e()
+                    : _vm.step === 3
+                      ? _c("div", { key: "slide-three" }, [
+                          _c("h2", { staticClass: "lom--overlay-title" }, [
+                            _vm._v("How to use")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "\n                    On the following page you will be able to select the psalm and/or verse that interests you. By clicking on the verse you will be redirected on the page with Peter Lombard's commentary to the given verse.\n                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "\n                    To be continued in a galaxy far far away ...\n                "
+                            )
+                          ])
+                        ])
+                      : _vm._e()
               ]
             ),
             _vm._v(" "),

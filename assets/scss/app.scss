@@ -36,7 +36,6 @@ body {
 
 .content-wrapper {
     width: calc(100vw - 18px);
-    overflow: hidden;
 }
 
 .lom--header {
@@ -45,7 +44,6 @@ body {
     background-color: $black;
     color: $white;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 .lom--site-title {
@@ -70,7 +68,10 @@ body {
 
 .lom--psalm-navigation {
     @include set-font-size(12px);
+    @include trailer(1.8);
     @include rhythm-paddings(.25, 0)
+    border-top: 1px solid $blue;
+    border-bottom: 1px solid $blue;
     display: block;
     vertical-align: middle;
 
@@ -157,10 +158,33 @@ body {
         padding-bottom: 5rem;
         &.lom--marginalia-cell {
             background: #F9F9F9;
+            .lom--close-button {
+                &:hover {
+                    color: $blue;
+                }
+            }
         }
         &.lom--author-cell {
             background-color: $pink;
             color: $white;
+            .lom--close-button {
+                &:hover {
+                    color: $black;
+                }
+            }
+        }
+
+        .lom--close-button {
+            @include transitions(color .3s ease);
+            height: 30px;
+            margin-bottom: -60px;
+            margin-top: 30px;
+            cursor: pointer;
+            vertical-align: middle;
+
+            svg {
+                vertical-align: middle;
+            }
         }
     }
 
@@ -181,6 +205,9 @@ body {
     .lom--psalm-marginalia {
         width: 80%;
         margin-left: 3rem;
+        display: block;
+        position: sticky;
+        top: 30px;
         .lom--psalm-subtitle  {
             @include trailer(2.6);
         }
@@ -188,6 +215,7 @@ body {
     .lom--author-description {
         @extend .lom--psalm-marginalia;
         color: $white;
+        position: relative;
         .lom--psalm-subtitle {
             font-weight: 600;
             color: $white;
@@ -344,7 +372,8 @@ p {
         @include set-font-size(12px, .5);
         @include transitions(all .3s ease);
         @include leader(.3);
-        height: 1.1 * $base-line-height;
+        @include trailer(1.4);
+        height: 1.4 * $base-line-height;
         color: $blue;
         cursor: pointer;
         text-align: center;
@@ -367,22 +396,6 @@ p {
     @include leader(2);
     margin-bottom: 0;
     padding: 0;
-}
-
-.lom--close-button {
-    @include transitions(color .3s ease);
-    height: 30px;
-    margin-bottom: -60px;
-    margin-top: 30px;
-    cursor: pointer;
-    vertical-align: middle;
-    &:hover {
-        color: $black;
-    }
-
-    svg {
-        vertical-align: middle;
-    }
 }
 
 .lom--active-verse {
@@ -471,6 +484,57 @@ p {
             background: transparent;
             border: 1px solid $white;
             color: $white;
+        }
+    }
+}
+.lom--interlinear-gloss {
+    font-weight: 300;
+    &::before {
+        display: inline-block;
+        content: '[';
+    }
+    &::after {
+        display: inline-block;
+        content: ']'
+    }
+}
+
+.lom--sticky {
+    position: sticky;
+    top: 30px;
+}
+
+.lom--has-marginalia {
+    @include transitions(all .3s ease);
+    border-bottom: 1px solid $blue;
+    cursor: pointer;
+    &:hover, &.lom--active {
+        color: $pink;
+        border-color: $pink;
+    }
+}
+
+.lom-marginalia-title {
+    margin: 0;
+    color: $blue;
+    font-weight: 400;
+}
+.lom-marginalia-desc {
+    margin: 0;
+    color: $blue;
+    font-weight: 300;
+}
+
+.lom--detail-panel {
+    display: block;
+    position: absolute;
+    width: 10px;
+    margin-left: -30px;
+    text-align: tac;
+    svg {
+        cursor: pointer;
+        &:hover {
+            color: $pink;
         }
     }
 }

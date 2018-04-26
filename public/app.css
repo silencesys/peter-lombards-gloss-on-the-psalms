@@ -531,7 +531,6 @@ body.lom--guide-visible {
 
 .content-wrapper {
   width: calc(100vw - 18px);
-  overflow: hidden;
 }
 
 .lom--header {
@@ -551,7 +550,6 @@ body.lom--guide-visible {
   color: #fff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  overflow: hidden;
 }
 
 .lom--site-title {
@@ -590,6 +588,8 @@ body.lom--guide-visible {
   font-size: 0.75rem;
   line-height: 24px;
   line-height: 1.5rem;
+  margin-bottom: 43.2px;
+  margin-bottom: 2.7rem;
   padding-top: 6px;
   padding-top: 0.375rem;
   padding-right: 0px;
@@ -598,6 +598,8 @@ body.lom--guide-visible {
   padding-bottom: 0.375rem;
   padding-left: 0px;
   padding-left: 0rem;
+  border-top: 1px solid #00f;
+  border-bottom: 1px solid #00f;
   display: block;
   vertical-align: middle;
 }
@@ -720,9 +722,31 @@ body.lom--guide-visible {
   background: #F9F9F9;
 }
 
+.lom--single-content .lom--cell.lom--marginalia-cell .lom--close-button:hover {
+  color: #00f;
+}
+
 .lom--single-content .lom--cell.lom--author-cell {
   background-color: #FF004E;
   color: #fff;
+}
+
+.lom--single-content .lom--cell.lom--author-cell .lom--close-button:hover {
+  color: #000;
+}
+
+.lom--single-content .lom--cell .lom--close-button {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  height: 30px;
+  margin-bottom: -60px;
+  margin-top: 30px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.lom--single-content .lom--cell .lom--close-button svg {
+  vertical-align: middle;
 }
 
 .lom--single-content .lom--psalm-verses {
@@ -747,6 +771,10 @@ body.lom--guide-visible {
 .lom--single-content .lom--author-description {
   width: 80%;
   margin-left: 3rem;
+  display: block;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 30px;
 }
 
 .lom--single-content .lom--psalm-marginalia .lom--psalm-subtitle,
@@ -757,6 +785,7 @@ body.lom--guide-visible {
 
 .lom--single-content .lom--author-description {
   color: #fff;
+  position: relative;
 }
 
 .lom--single-content .lom--author-description .lom--psalm-subtitle {
@@ -963,7 +992,9 @@ p {
   transition: all 0.3s ease;
   margin-top: 7.2px;
   margin-top: 0.45rem;
-  height: 26.4px;
+  margin-bottom: 33.6px;
+  margin-bottom: 2.1rem;
+  height: 33.6px;
   color: #00f;
   cursor: pointer;
   text-align: center;
@@ -990,24 +1021,6 @@ p {
   margin-top: 3rem;
   margin-bottom: 0;
   padding: 0;
-}
-
-.lom--close-button {
-  -webkit-transition: color 0.3s ease;
-  transition: color 0.3s ease;
-  height: 30px;
-  margin-bottom: -60px;
-  margin-top: 30px;
-  cursor: pointer;
-  vertical-align: middle;
-}
-
-.lom--close-button:hover {
-  color: #000;
-}
-
-.lom--close-button svg {
-  vertical-align: middle;
 }
 
 .lom--active-verse {
@@ -1134,5 +1147,66 @@ p {
   background: transparent;
   border: 1px solid #fff;
   color: #fff;
+}
+
+.lom--interlinear-gloss {
+  font-weight: 300;
+}
+
+.lom--interlinear-gloss::before {
+  display: inline-block;
+  content: '[';
+}
+
+.lom--interlinear-gloss::after {
+  display: inline-block;
+  content: ']';
+}
+
+.lom--sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 30px;
+}
+
+.lom--has-marginalia {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #00f;
+  cursor: pointer;
+}
+
+.lom--has-marginalia:hover,
+.lom--has-marginalia.lom--active {
+  color: #FF004E;
+  border-color: #FF004E;
+}
+
+.lom-marginalia-title {
+  margin: 0;
+  color: #00f;
+  font-weight: 400;
+}
+
+.lom-marginalia-desc {
+  margin: 0;
+  color: #00f;
+  font-weight: 300;
+}
+
+.lom--detail-panel {
+  display: block;
+  position: absolute;
+  width: 10px;
+  margin-left: -30px;
+  text-align: tac;
+}
+
+.lom--detail-panel svg {
+  cursor: pointer;
+}
+
+.lom--detail-panel svg:hover {
+  color: #FF004E;
 }
 

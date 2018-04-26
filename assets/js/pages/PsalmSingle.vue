@@ -9,7 +9,11 @@
                 <div class="lom--psalm-navigation">
                     <router-link to="/" class="lom--ps-title-icon">
                         <font-awesome-icon :icon="['far', 'file']" />
-                        View
+                        17v
+                    </router-link>
+                    <router-link to="/" class="lom--ps-title-icon">
+                        <font-awesome-icon :icon="['far', 'file']" />
+                        18r
                     </router-link>
                     <router-link to="/" class="lom--ps-title-icon">
                         <font-awesome-icon :icon="['fab', 'youtube']" />
@@ -18,21 +22,43 @@
                 </div>
 
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 1}]" @click="openVerse(1)">
+                    <span class="lom--detail-panel">
+                        <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(1, [0,0])" />
+                        <font-awesome-icon :icon="['far', 'eye']" />
+                    </span>
                     Usquequo, Domine, oblivisceris me in finem? Usquequo avertis faciem tuam a me?
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 2}]" @click="openVerse(2)">
+                    <span class="lom--detail-panel">
+                        <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(2, [0,0])" />
+                        <font-awesome-icon :icon="['far', 'eye']" />
+                    </span>
                     Quamdiu ponam consilia in anima mea, dolorem in corde meo per diem?
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 3}]" @click="openVerse(3)">
+                    <span class="lom--detail-panel">
+                        <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(3, [0,0])" />
+                        <font-awesome-icon :icon="['far', 'eye']" />
+                    </span>
                     Usquequo exaltabitur inimicus meus super me? Respice et exaudi me, Domine Deus meus.
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 4}]" @click="openVerse(4)">
+                    <span class="lom--detail-panel">
+                        <font-awesome-icon :icon="['far', 'eye']" />
+                    </span>
                     Illumina oculos meos, ne umquam obdormiam in morte. Nequando dicat inimicus meus: Prevalui adversus eum.
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 5}]" @click="openVerse(5)">
+                    <span class="lom--detail-panel">
+                        <font-awesome-icon :icon="['far', 'sticky-note']" @click="openVerseWithMarginalia(5, [5,0])" />
+                        <font-awesome-icon :icon="['far', 'eye']" />
+                    </span>
                     Qui tribulant me, exultabunt, si motus fuero. Ego autem in misericordia tua speravi.
                 </p>
                 <p :class="['lom--active-verse', {'lom--active': verse.id === 6}]" @click="openVerse(6)">
+                    <span class="lom--detail-panel">
+                        <font-awesome-icon :icon="['far', 'eye']" />
+                    </span>
                     Exultavit cor meum in salutari tuo. Cantabo Domino, qui bona tribuit mihi, et psallam nomini Domini altissimi.
                 </p>
             </section>
@@ -44,7 +70,22 @@
                 </h2>
                 <transition name="fade" mode="out-in">
                     <div class="lom--psalm-content" v-if="verse.id === 1" key="commentary-1">
-                        <div class="lom--church-authors">
+                        <p>
+                            Titulus. In finem Psalmus David. Titulus iste patet. Psalmus iste agit de caritate Christi, in qua totius legis perfectio est, quam qui habet, mundum non amat. Hic enim propheta plenus caritate, <span class="lom--interlinear-gloss">qua</span> avide Christi incarnationem expectat, per quam futuram redemptionem intelligit, in persona antiquorum patrum, quasi de dilatione conqueritur. In quo etiam dilectio proximi ostenditur, cuius saluti hoc optatur, ut superstitione abiecta unius Dei cultura suscipiatur. Vel in persona sanctorum modernorum loquitur, secundum Christi adventum desiderantium, ubi certi sunt de salute. Quanto enim desiderio antiqui primum desideraverunt adventum, tanto moderni secundum cupiunt, iuxta illud: Cupio dissolvi et esse cum Christo. Intentio. Ad idem desiderium invitat. Modus. Bipartitus est. Prima pars est conquestio de dilactione adventus primi secundus antiquos, secundi iuxta modernos. Secundo, orat illuminari ne cedat fraudibus inimici, ibi, <span class="lom--psalm-highlight">respice</span>, etc. Prius ergo propheta in persona antiquorum de incarationis dilatione conquerentium ait: <span class="lom--psalm-highlight">O Domine, oblivisceris me</span>, id est presentiam incarnationis mihi subtrahis, usque <span class="lom--psalm-highlight">in finem</span>, id est usque ad tempus plenitudinis. Unde Apostolus: Cum venit plenitudo temporis misit Deus Filium suum etc. Et <span class="lom--psalm-highlight">usquequo</span> exspectabitur hoc? Deinde repetit aliis verbis: <span class="lom--psalm-highlight">avertis faciem tuam a me</span>, <span :class="['lom--has-marginalia', {'lom--active': marginalia.verse === 1 && marginalia.position === 0}]" @click="showMarginalia(1, 0)">scilicet presentiam Filii tui, qui est facies tua, que hominibus videnda est. Et <span class="lom--psalm-highlight">usquequo</span> erit hoc?</span>
+                        </p>
+                    </div>
+
+                    <div class="lom--psalm-content" v-else-if="verse.id === 2" key="commentary-2">
+                        <p>
+                            <span class="lom--psalm-highlight">Et quamdiu ponam consilia,</span> scilicet de diversis, ut qui anxius est <span class="lom--psalm-highlight">in anima mea</span>. Magnus ardor sustinentis hic ostenditur, qui dicit sibi deesse consilium ut, id est qualiter videndi mitigit affectum.
+                        </p>
+                        <p>
+                            Quando autem magna anxietas est concupiscere bonum et diutius sustinere, crescit desiderium in dolorem, quia spes protrahitur. Unde subditur: Et quamdiu ponam <span class="lom--psalm-highlight">dolorem in corde meo</span>. Et hoc <span class="lom--psalm-highlight">per diem</span>, id est absolute, id est per singulos dies, quia…
+                        </p>
+                    </div>
+
+                    <div class="lom--psalm-content" v-else-if="verse.id === 3" key="commentary-3">
+<div class="lom--church-authors">
                             <div :class="['lom--authors', {'lom--author-active': author.quotation === 0}]" @click="openAuthor('au', 0)">
                                 <font-awesome-icon :icon="['far', 'user']" /><br>
                                 ag
@@ -70,16 +111,6 @@
                         </p>
                     </div>
 
-                    <div class="lom--psalm-content" v-else-if="verse.id === 2" key="commentary-2">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas sed eos officia obcaecati ratione, voluptatem iusto deleniti nam <span class="lom--psalm-highlight">debitis accusamus</span>, incidunt possimus, recusandae amet dignissimos consequatur beatae numquam quibusdam officiis.</p>
-                        <p>Nam reprehenderit fugiat <span class="lom--psalm-highlight">natus quasi quas eum sapiente</span>, aliquid eveniet asperiores mollitia, eius ducimus quisquam voluptatem, laborum tempore, consectetur aut optio. Facilis ipsam iusto quos voluptatem quia blanditiis accusantium doloribus.</p>
-                    </div>
-
-                    <div class="lom--psalm-content" v-else-if="verse.id === 3" key="commentary-3">
-                        <p>Donec vel mattis neque. <span class="lom--psalm-highlight">Vestibulum quis dolor at odio congue placerat at eu metus. Duis ac odio eget dolor bibendum elementum. Vivamus metus libero, auctor</span> a sem nec, sodales imperdiet eros. Nunc in finibus metus, eget feugiat sem. Maecenas varius euismod tristique.</p>
-                        <p>Nam reprehenderit fugiat <span class="lom--psalm-highlight">natus quasi quas eum sapiente</span>, aliquid eveniet asperiores mollitia, eius ducimus quisquam voluptatem, laborum tempore, consectetur aut optio. Facilis ipsam iusto quos voluptatem quia blanditiis accusantium doloribus.</p>
-                    </div>
-
                     <div class="lom--psalm-content" v-else-if="verse.id === 4" key="commentary-4">
                         <div class="lom--church-authors">
                             <div :class="['lom--authors', {'lom--author-active': author.quotation === 4}]" @click="openAuthor('au', 4)">
@@ -88,23 +119,26 @@
                             </div>
                         </div>
                         <p>
-                            <span class="lom--psalm-highlight">Illumina oculos meos</span> interiores, ut si non corpore videamus [edition: videmus], vel id est saltem mente videamus. <span :class="['lom--author', {'lom--author-active': author.quotation === 4}]" @click="openAuthor('au', 4)">Aliter</span> totum legitur ex persona modernorum sanctorum, secundum Christi adventum optantium, ut cum eo bene [i: beate] vivant, et pro dilatione conquerentium, sic o <span class="lom--psalm-highlight">Domine, usquequo oblivisceris me in finem</span> capiendum, id est [edition: sit], quousque differs me ad intelligendum Christum spiritualiter, qui est Patris sapientia et finis rectus omnis intentionis. Et repetit: <span class="lom--psalm-highlight">Usquequo avertis faciem tuam a me</span>, id est usquequo non das anime mee notitiam tui? More nostro loquitur Scriptura, cum Deum, dicit, oblivisci et avertere faciem. Hic enim non iuxta rerum proprietatem, sed per creaturarum similitudinem dicitur: In eum quippe oblivio non cadit, nec aliqua permutatio. Et <span class="lom--psalm-highlight">quamdiu ponam consilia in anima mea</span>, consilio non est opus, nisi in adversis. Et est sensus: <span class="lom--psalm-highlight">Quamdiu ponam, etc.</span>, id est quamdiu ero in adversis, quod exponit subdens, scilicet quamdiu ponam <span class="lom--psalm-highlight">dolorem in corde</span> etc. [linked: per diem]. Diem ponit pro isto seculo, quo vult exui dolens, precans que eterna, vel per diem, id est continue. Vel non sub interrogatione dicitur istud, <span class="lom--psalm-highlight">quamdiu ponam</span>, sed est responsio precedendi interrogationi, quasi tandiu oblivisceris et faciem avertis, <span class="lom--psalm-highlight">quamdiu ponam consilia</span>, id est quamdiu necesse erit ut ponam consilium <span class="lom--psalm-highlight">in anima mea</span>, ut nisi ponat quisque consilium in anima sua tale, scilicet ut operetur misericordiam, non eum dirigat Deus in finem, neque det ei plenam sui notitiam, ut eum facie ad faciem videat.
+                            <span class="lom--psalm-highlight">Illumina oculos meos</span> interiores, ut si non corpore videamus, vel id est saltem mente videamus. <span :class="['lom--author', {'lom--author-active': author.quotation === 4}]" @click="openAuthor('au', 4)">Aliter</span> totum legitur ex persona modernorum sanctorum, secundum Christi adventum optantium, ut cum eo bene <span class="lom--interlinear-gloss">beate</span> vivant, et pro dilatione conquerentium, sic o <span class="lom--psalm-highlight">Domine, usquequo oblivisceris me in finem</span> capiendum, id est, quousque differs me ad intelligendum Christum spiritualiter, qui est Patris sapientia et finis rectus omnis intentionis. Et repetit: <span class="lom--psalm-highlight">Usquequo avertis faciem tuam a me</span>, id est usquequo non das anime mee notitiam tui? More nostro loquitur Scriptura, cum Deum, dicit, oblivisci et avertere faciem. Hic enim non iuxta rerum proprietatem, sed per creaturarum similitudinem dicitur: In eum quippe oblivio non cadit, nec aliqua permutatio. Et <span class="lom--psalm-highlight">quamdiu ponam consilia in anima mea</span>, consilio non est opus, nisi in adversis. Et est sensus: <span class="lom--psalm-highlight">Quamdiu ponam, etc.</span>, id est quamdiu ero in adversis, quod exponit subdens, scilicet quamdiu ponam <span class="lom--psalm-highlight">dolorem in corde</span> etc. Diem ponit pro isto seculo, quo vult exui dolens, precans que eterna, vel per diem, id est continue. Vel non sub interrogatione dicitur istud, <span class="lom--psalm-highlight">quamdiu ponam</span>, sed est responsio precedendi interrogationi, quasi tandiu oblivisceris et faciem avertis, <span class="lom--psalm-highlight">quamdiu ponam consilia</span>, id est quamdiu necesse erit ut ponam consilium <span class="lom--psalm-highlight">in anima mea</span>, ut nisi ponat quisque consilium in anima sua tale, scilicet ut operetur misericordiam, non eum dirigat Deus in finem, neque det ei plenam sui notitiam, ut eum facie ad faciem videat.
                         </p>
                         <p>
                             Deinde sequitur: Quamdiu ponam <span class="lom--psalm-highlight">dolorem in corde meo</span>, hoc non mutatur. Sequitur: Et <span class="lom--psalm-highlight">usquequo exaltabitur inimicus meus super me</span>, scilicet diabolus, vel carnalis consuetudo. Ut autem hoc tollatur?
                         </p>
                         <p>
-                            <span class="lom--psalm-highlight">Respice et exaudi me, Domine Deus meus</span>, etc. Respice dicit, contra hoc quod supradictum est, avertis faciem tuam, exaudi, contra oblivisceris me. Et <span class="lom--psalm-highlight">illumina oculos meos</span> cordis ne unquam obdormiam. Per concupiscentiam, que ex me sit <span class="lom--psalm-highlight">in morte</span>, id est ne peccati delectatione claudantur ipsi oculi. Oculi enim obdormiunt in morte, quando fidei lumine sepulto carnali delectatione clauduntur. Vel <span class="lom--psalm-highlight">ne unquam obdormiam in morte</span>, id est ne obvolvar quolibet criminali peccato. Vel <span class="lom--psalm-highlight">in morte</span>, id est in peccato, quod fit in Spiritum sanctum, de quo dicit Iohannes: Est peccatum ad mortem, non pro eo dico ut quis oret [1John 5:16]. Dico non obdormiam per me, nec etiam per alium. Et hoc est <span class="lom--psalm-highlight">ne quando dicat inimicus meus</span>, id est diabolus, qui insultat dum capit. Quid dicat: <span class="lom--psalm-highlight">Prevalui adversus eum?</span> Ecce insultatio diaboli, que vehementer timenda est. Ideo dico, ne dicat inimicus, quia…
+                            <span class="lom--psalm-highlight">Respice et exaudi me, Domine Deus meus</span>, etc. Respice dicit, contra hoc quod supradictum est, avertis faciem tuam, exaudi, contra oblivisceris me. Et <span class="lom--psalm-highlight">illumina oculos meos</span> cordis ne unquam obdormiam. Per concupiscentiam, que ex me sit <span class="lom--psalm-highlight">in morte</span>, id est ne peccati delectatione claudantur ipsi oculi. Oculi enim obdormiunt in morte, quando fidei lumine sepulto carnali delectatione clauduntur. Vel <span class="lom--psalm-highlight">ne unquam obdormiam in morte</span>, id est ne obvolvar quolibet criminali peccato. Vel <span class="lom--psalm-highlight">in morte</span>, id est in peccato, quod fit in Spiritum sanctum, de quo dicit Iohannes: Est peccatum ad mortem, non pro eo dico ut quis oret. Dico non obdormiam per me, nec etiam per alium. Et hoc est <span class="lom--psalm-highlight">ne quando dicat inimicus meus</span>, id est diabolus, qui insultat dum capit. Quid dicat: <span class="lom--psalm-highlight">Prevalui adversus eum?</span> Ecce insultatio diaboli, que vehementer timenda est. Ideo dico, ne dicat inimicus, quia…
                         </p>
                     </div>
 
                     <div class="lom--psalm-content" v-else-if="verse.id === 5" key="commentary-5">
-                        <p>Mauris finibus consequat tellus in bibendum. Donec scelerisque leo dui, sed semper augue vestibulum ac. Nunc sem lectus, volutpat eget tincidunt quis, vehicula quis elit. Aenean ut tincidunt quam. Morbi vestibulum aliquam turpis, et dapibus ante consequat vel. <span class="lom--psalm-highlight">Proin euismod egestas magna</span>, vel bibendum tellus dictum id. Quisque id odio mauris. Aenean ut neque eu lorem suscipit euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. <span class="lom--psalm-highlight">Praesent</span> a tellus vitae mauris vehicula consequat eu et felis.</p>
-                        <p>In sodales sapien velit, eu sollicitudin erat efficitur sit amet. Aenean laoreet venenatis turpis, a lacinia velit congue volutpat. Nullam dapibus varius finibus. <span class="lom--psalm-highlight">Proin id nulla porta</span>, sagittis ex et, blandit ante. Vestibulum dui orci, aliquet sit amet mi et, rutrum porttitor arcu. </p>
+                        <p>
+                            <span class="lom--psalm-highlight">Qui tribulant,</span> scilicet diabolus et angeli eius <span class="lom--psalm-highlight">exultabunt si motus fuero</span> de stabilitate fidei. Acsi diceret: Non solum propter me debes illuminare, sed et propter hoc ne inimicus gaudeat. Sequitur: <span class="lom--psalm-highlight">Ego autem in misericordia</span>, quasi illi tribulant, <span class="lom--psalm-highlight">ego autem in tua misericordia speravi</span>, non de me presumpsi, qui etiam id ipsum, quod non commovetur, non sibi dat, sed Deo. Vel in <span class="lom--psalm-highlight">misericordia tua speravi</span>, scilicet de adventu Filii. Quia etsi festinat iste vir sanctus, tamen est patiens, quia etsi differtur, quod desiderat, <span :class="['lom--has-marginalia', {'lom--active': marginalia.verse === 5 && marginalia.position === 1}]" @click="showMarginalia(5, 1)">exsultat. Unde subdit:</span>
+                        </p>
                     </div>
 
                     <div class="lom--psalm-content" v-else-if="verse.id === 6" key="commentary-6">
-                        <p>Donec bibendum elementum justo a faucibus. Maecenas convallis vel risus et lobortis. Nunc viverra varius sollicitudin. <span class="lom--psalm-highlight">Duis sollicitudin metus id maximus fringilla</span>. Nunc cursus elit vitae nulla aliquam, faucibus egestas lorem porta. Aenean efficitur iaculis elit, eu sodales tortor. Phasellus congue felis nec placerat commodo. </p>
+                        <p>
+                            Exultavit cor meum, quasi speravi in misericordia, unde <span class="lom--psalm-highlight">exultabit vel <span class="lom--interlinear-gloss">exulta</span> vit cor meum in salutari tuo</span>, id est in Ihesu, quem mente venturum conspicio. Unde et sibi bona data dicit iste, qui prius conquerebatur subdens: Dominus <span class="lom--psalm-highlight">tribuit mihi bona</span> spiritualia, non ad humanum diem pertinentia. Et ei <span class="lom--psalm-highlight">Domino, qui tribuit bona cantabo</span> corde, scilicet cordis letitia, quod ad contemplativam vitam pertinet. Et nota quod ait, tribuit, non tribuet. In quo notatur magna virtus fidei. Iam enim habet, quod futurum est. Sequitur: Et psallam opere, quod ad activam vitam pertinet, psallam, dico, <span class="lom--psalm-highlight">nomini Domini altissimi</span>. Et est sensus: Cantabo et <span class="lom--psalm-highlight">psallam nomini Domini altissimi</span>, id est cum gaudio gratias agam corde et opere. Si ergo iste fidelis tantum desiderat, si sic famulatur Christo, adhuc venturo. Quid faciendum est jam suscepto? Utique omni modo ei est famulandum.
+                        </p>
                     </div>
                 </transition>
             </section>
@@ -112,7 +146,7 @@
         <div :class="['lom--cell', {'lom--author-cell': author.visible}, {'lom--marginalia-cell': marginalia.visible}]">
             <transition name="fade" mode="out-in">
                 <section class="lom--author-description" v-if="author.visible && !marginalia.visible" key="author.quotation">
-                    <div class="lom--close-button" @click="closeAuthor">
+                    <div class="lom--close-button" @click="closeAll">
                         <font-awesome-icon :icon="['far', 'times']" />
                         close
                     </div>
@@ -135,12 +169,23 @@
                     </p>
                 </section>
                 <section class="lom--psalm-marginalia" v-else-if="marginalia.visible && !author.visible" key="marginalia">
+                    <div class="lom--close-button" @click="closeAll">
+                        <font-awesome-icon :icon="['far', 'times']" />
+                        close
+                    </div>
+
                     <h2 class="lom--psalm-subtitle">
                         Marginalia
                     </h2>
                     <p>
-                        There are none.
+                        {{ glosses[this.marginalia.verse][this.marginalia.position].text }}
                     </p>
+                    <div v-if="glosses[this.marginalia.verse][this.marginalia.position].desc !== null">
+                        <h3 class="lom-marginalia-title">
+                            Information
+                        </h3>
+                        <p class="lom-marginalia-desc" v-html="glosses[this.marginalia.verse][this.marginalia.position].desc"></p>
+                    </div>
                 </section>
             </transition>
         </div>
@@ -158,7 +203,9 @@
                     short: null
                 },
                 marginalia: {
-                    visible: false
+                    visible: false,
+                    verse: null,
+                    position: null
                 },
                 verse: {
                     id: 1
@@ -199,29 +246,81 @@
                             quotation: "Oculos cordis oportet intelligi, ne delectabili defectu peccati claudantur […]"
                         }
                     ]
+                },
+                glosses: {
+                    0: [
+                        {
+                            text: 'In persona antiquorum propheta conqueritur; 1. De dilatione incarnationis unde usquequo; 2. De multitudine ceremoniarum unde quamdiu; 3. De exaltatione inimici unde usquequo exaltabitur',
+                            desc: "Resume for verses 1 - 3."
+                        }
+                    ],
+                    1: [
+                        {
+                            text: "Filius dicitur facies patris quod sicut homo cognoscitur per faciem ita Pater cognoscitur per Filium ab hiis quibus Filius demonstravit undem Philippe, qui videt me etc…",
+                            desc: null
+                        }
+                    ],
+                    5: [
+                        {
+                            text: "… id est animalitati tue Si des anime tue concupiscentias[,] facies te gaudio inimicis tuis",
+                            desc: "This marginalia seems to be related to the whole verse."
+                        },
+                        {
+                            text: "firmus est in spe et interus iam videns illum quem in carne desiderat videre",
+                            desc: null
+                        }
+                    ]
                 }
             }
         },
         methods: {
             openAuthor(short, id) {
                 if (id === this.author.quotation) {
-                    this.closeAuthor();
+                    this.closeAll();
                 } else {
+                    this.closeMarginalia();
                     this.author.visible = true;
                     this.author.quotation = id;
                     this.author.short = short;
                 }
+            },
+            openVerse(id, marginalia = -1) {
+                if (this.verse.id !== id) {
+                    this.closeAll();
+                }
+
+                if (typeof marginalia === 'number') {
+                    if (marginalia !== -1) {
+                        this.showMarginalia(id, marginalia);
+                    }
+                } else {
+                    this.showMarginalia(marginalia[0], marginalia[1]);
+                }
+
+                this.verse.id = id;
+            },
+            openVerseWithMarginalia(verse, marginalia) {
+                this.openVerse(verse, marginalia);
+            },
+            showMarginalia(verse, marginalia) {
+                this.marginalia.verse = verse;
+                this.marginalia.position = marginalia;
+                this.marginalia.visible = true;
+                this.author.visible = false;
+            },
+            closeAll() {
+                this.closeAuthor();
+                this.closeMarginalia();
             },
             closeAuthor() {
                 this.author.visible = false;
                 this.author.quotation = null;
                 this.author.short = null;
             },
-            openVerse(id) {
-                if (this.verse.id !== id) {
-                    this.closeAuthor();
-                }
-                this.verse.id = id;
+            closeMarginalia() {
+                this.marginalia.visible = false;
+                this.marginalia.verse = null;
+                this.marginalia.position = null;
             }
         },
         created() {
