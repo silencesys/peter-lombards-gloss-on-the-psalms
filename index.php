@@ -11,9 +11,9 @@
         <site-header></site-header>
         <!-- Views -->
         <div class="content-wrapper">
-                <site-guide @event-hideoverlay="() => { hideGuideOverlay() }"
-                            :visible="guide"
-                ></site-guide>
+            <site-guide @event-hideoverlay="() => { hideGuideOverlay() }"
+                        :visible="guide"
+            ></site-guide>
             <transition name="slide-horizontal" mode="out-in">
                 <router-view></router-view>
             </transition>
